@@ -20,14 +20,17 @@ class URLReader:
                 raise URLReader._StatusException()
 
         except requests.ConnectionError:
-            print(colored("Error: Could not connect to {url}", "red"))
+            print(colored(f"Error: Could not connect to {url}", "red"))
             exit(1)
     
-    def _load_json(self):
+    def __load_json(self):
         response = requests.get(self.url)
         return response.json()
 
-    def save_as_file(self, filename: str, data: str=_load_json()):
+    def save_as_file(self, filename: str, data: str=None):
+        if data is None:
+            data = self.__load_json()
+        
         temp_file = join(tempfile.gettempdir(), filename)
         
         try:
