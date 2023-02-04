@@ -8,13 +8,16 @@ from termcolor import colored
 
 
 class URLReader:
+    class _StatusException(Exception):
+        pass
+    
     def __init__(self, url: str):
         try:
             response = requests.head(url)
             
             if response.status_code != 200:
                 print(colored("Error: Website isn't returning HTTP Status Code (200 OK)"))
-                exit(1)
+                raise URLReader._StatusException()
 
         except requests.ConnectionError:
             print(colored("Error: Could not connect to {url}", "red"))
