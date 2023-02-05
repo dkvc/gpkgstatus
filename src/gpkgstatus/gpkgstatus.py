@@ -49,16 +49,20 @@ def main(args: argparse.Namespace):
     
     try:
         file_reader = JSONFileReader(cache_file, "updates")
+        
         if (args['force'] or \
             (file_reader.relative_time() > cache_time)):
             url_reader = URLReader(url)
             url_reader.save_as_file(cache_file)
+
     except FileNotFoundException:
         url_reader = URLReader(url)
         url_reader.save_as_file(cache_file)
         file_reader = JSONFileReader(cache_file, "updates")
+        
     finally:
         updates = file_reader.read()
+        
         if not updates:
             print(colored("No Updates Found. Check your arguments.", "red"))
             exit(0)
