@@ -6,6 +6,7 @@ from sys import exit
 from tempfile import gettempdir
 from termcolor import colored
 from time import time
+from typing import Union
 
 class FileNotFoundException(Exception):
         pass
@@ -15,7 +16,7 @@ class JSONFileReader:
     _keys: list = []
     _path: Path = Path()
 
-    def __init__(self, _path: Path | str, *_keys):
+    def __init__(self, _path: Union[Path, str], *_keys):
         if len(_keys) < 1:
             print(colored("Error: At least one key is required"))
             exit(1)
