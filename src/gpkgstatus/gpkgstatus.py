@@ -1,4 +1,12 @@
 from argparse import ArgumentParser
+from termcolor import colored
+
+def print_update_info(update: dict, status_color: str):
+    print(colored(f"Update ID: {update['updateid']}", status_color))
+    print(colored(f"Package Name: {update['title']}", status_color))
+    print(colored(f"Status: {update['status']}", status_color))
+    print("------------------------------")
+
 
 if __name__ == "__main__":
     parser = ArgumentParser(

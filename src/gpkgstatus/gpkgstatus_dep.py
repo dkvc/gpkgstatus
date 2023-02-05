@@ -95,12 +95,6 @@ def print_info(update_info):
 
             print_update_info(update, status_color)
             
-@DeprecationWarning
-def print_update_info(update: dict, status_color: str):
-    print(colored(f"Update ID: {update['updateid']}", status_color))
-    print(colored(f"Package Name: {update['title']}", status_color))
-    print(colored(f"Status: {update['status']}", status_color))
-    print("------------------------------")
 
 @DeprecationWarning
 def main(args: argparse.Namespace):
