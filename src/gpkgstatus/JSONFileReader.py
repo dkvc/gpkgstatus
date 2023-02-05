@@ -7,6 +7,9 @@ from tempfile import gettempdir
 from termcolor import colored
 from time import time
 
+class FileNotFoundException(Exception):
+        pass
+
 class JSONFileReader:
     
     _keys: list = []
@@ -21,8 +24,7 @@ class JSONFileReader:
             _path = Path(os.path.join(gettempdir(), _path))
         
         if not (_path.exists() and _path.is_file()):
-            print(colored("Error: Given Path either doesn't exist or is not a file"))
-            raise FileNotFoundError()
+            raise FileNotFoundException()
 
         self._keys = list(_keys)
         self._path = _path
@@ -34,7 +36,7 @@ class JSONFileReader:
                 searched_info = []
 
                 for key in self._keys:
-                    if key not in data.keys:
+                    if key not in data.keys():
                         print(colored(f"Warning: Key {key} doesn't exist"))
                     else:
                         for value in data[key]:
@@ -47,4 +49,4 @@ class JSONFileReader:
             exit(1)
 
     def relative_time(self):
-        return time.time() - os.path.getmtime(self._path)
+        return time() - os.path.getmtime(self._path)
