@@ -8,7 +8,7 @@ with open('requirements.txt') as req_file:
 
 setup(
         name="gpkgstatus",
-        version="0.4-beta",
+        version="0.5-beta",
         license="GPL-2.0",
         python_requires=">=3.8",
         author="Dhanush Kovi",

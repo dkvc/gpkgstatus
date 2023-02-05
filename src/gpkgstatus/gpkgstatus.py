@@ -79,7 +79,7 @@ if __name__ == "__main__":
     parser.add_argument('name', help='Name of the package')
     dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version', default="f")
     parser.add_argument('-f', '--force', help="Sync cached info with Fedora Updates System", action='store_true')
-    parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='0.4 (beta)')
+    parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='0.5 (beta)')
     args = parser.parse_args()
     
     main(vars(args))

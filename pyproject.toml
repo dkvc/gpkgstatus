@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gpkgstatus"
-version = "0.4-beta"
+version = "0.5-beta"
 description = "Get Current Package Status from Fedora Updates System"
 author = "Dhanush Kovi"
 license = "GPL-2.0"
@@ -18,7 +18,7 @@ keywords = [
 ]
 
 classifiers = [
-    "Development Status :: 0.4 - Beta",
+    "Development Status :: 0.5 - Beta",
     "Environment :: Console",
     "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     "Operating System :: All",
