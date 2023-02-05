@@ -22,7 +22,7 @@ class JSONFileReader:
         
         if not (_path.exists() and _path.is_file()):
             print(colored("Error: Given Path either doesn't exist or is not a file"))
-            exit(1)
+            raise FileNotFoundError()
 
         self._keys = list(_keys)
         self._path = _path
