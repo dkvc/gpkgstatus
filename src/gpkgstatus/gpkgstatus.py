@@ -1,7 +1,7 @@
 import argparse
 
-from JSONFileReader import JSONFileReader, FileNotFoundException
-from URLReader import URLReader
+from gpkgstatus.JSONFileReader import JSONFileReader, FileNotFoundException
+from gpkgstatus.URLReader import URLReader
 from termcolor import colored
 
 def select_url(name: str, version: int=None):
@@ -36,8 +36,7 @@ def print_update_info(update: dict, status_color: str):
     print(colored(f"Status: {update['status']}", status_color))
     print("------------------------------")
 
-def main(args: argparse.Namespace):
-    args = vars(args)
+def main(args: dict):
     cache_time = 3600 # 1 hr
 
     if args["distro_version"]:
@@ -83,4 +82,4 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='0.4 (beta)')
     args = parser.parse_args()
     
-    main(args)
+    main(vars(args))
