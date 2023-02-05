@@ -1,4 +1,4 @@
-from gpkgstatus.JSONFileReader import JSONFileReader
+from gpkgstatus.JSONFileReader import JSONFileReader, FileNotFoundException
 from pytest import raises
 
 class TestJSONFileReader():
@@ -7,6 +7,6 @@ class TestJSONFileReader():
             JSONFileReader("test.py")
     
     def test_invalid_file(self):
-        with raises(SystemExit):
+        with raises(FileNotFoundException):
             keys = ["test", "dev", "beta"]
             JSONFileReader("test.py", *keys)
