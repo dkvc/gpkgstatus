@@ -17,7 +17,7 @@ class JSONFileReader:
             print(colored("Error: At least one key is required"))
             exit(1)
         
-        if not isinstance(_path):
+        if not isinstance(_path, Path):
             _path = Path(os.path.join(gettempdir(), _path))
         
         if not (_path.exists() and _path.is_file()):
