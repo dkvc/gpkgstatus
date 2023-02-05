@@ -29,7 +29,7 @@ class TestSavedFiles():
         # python.org
         URLReader("https://2p66nmmycsj3.statuspage.io/api/v2/status.json").save_as_file(filename)
 
-        path = Path(os.path.join(gettempdir()), filename)
+        path = Path(os.path.join(gettempdir(), filename))
         exists = path.exists()
         if exists:
             os.remove(path)
@@ -41,7 +41,7 @@ class TestSavedFiles():
         # github.com main webpage
         URLReader("https://github.com/webgl-globe/data/data.json").save_as_file(filename)
         
-        path = Path(os.path.join(gettempdir()), filename)
+        path = Path(os.path.join(gettempdir(), filename))
         is_file = path.is_file()
         if is_file:
             os.remove(path)
