@@ -8,7 +8,7 @@ import time
 
 from termcolor import colored
 
-
+@DeprecationWarning
 def read_url(package_name: str, cache_file: str, version: str):
     url = f"https://bodhi.fedoraproject.org/updates/?search={package_name}"
     
@@ -48,7 +48,7 @@ def read_url(package_name: str, cache_file: str, version: str):
     if update_info:
         print_info(update_info)
 
-
+@DeprecationWarning
 def read_file(cache_file: str, version: str):
     try:
         with open(cache_file, "r") as f:
@@ -72,7 +72,7 @@ def read_file(cache_file: str, version: str):
     print(colored("[Cached Data (less than 30 minutes ago)]", "red", attrs=["bold"]))
     print_info(update_info)
 
-
+@DeprecationWarning
 def print_info(update_info):
     colors = {"stable": "green",
               "testing": "yellow",
@@ -95,14 +95,14 @@ def print_info(update_info):
 
             print_update_info(update, status_color)
             
-
+@DeprecationWarning
 def print_update_info(update: dict, status_color: str):
     print(colored(f"Update ID: {update['updateid']}", status_color))
     print(colored(f"Package Name: {update['title']}", status_color))
     print(colored(f"Status: {update['status']}", status_color))
     print("------------------------------")
 
-
+@DeprecationWarning
 def main(args: argparse.Namespace):
     package_name = args.name
     version = args.distro_version
