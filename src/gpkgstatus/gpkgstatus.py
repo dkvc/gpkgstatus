@@ -4,6 +4,23 @@ from JSONFileReader import JSONFileReader, FileNotFoundException
 from URLReader import URLReader
 from termcolor import colored
 
+def select_url(name: str, version: int=None):
+    first_letter = version[0]
+    urls = {
+        "f": f"https://bodhi.fedoraproject.org/updates/?search={name}",
+        "o": None,
+    }
+
+    if first_letter in urls:
+        url = urls[first_letter]
+    else:
+        print(colored(f"Error: Invalid Distribution", "red"))
+        exit(1)
+    
+    if len(version) > 1:
+        url += f"&releases={version}"
+    return url
+
 def print_update_info(update: dict, status_color: str):
     colors = {"stable": "green",
               "testing": "yellow",
@@ -22,14 +39,16 @@ def print_update_info(update: dict, status_color: str):
 def main(args: argparse.Namespace):
     args = vars(args)
 
-    cache_file = f"{args['name']}.json"
+    if args["distro_version"]:
+        cache_file = f"{args['name']}_{args['distro_version']}.json"
+    else:
+        cache_file = f"{args['name']}.json"
     cache_time = 3600 # 1 hr
 
-    if args['distro_version'].lower().startswith("f"):
-        url = f"https://bodhi.fedoraproject.org/updates/?search={args['name']}"
+    url = select_url(args['name'], args['distro_version'].lower())
     
     try:
-        file_reader = JSONFileReader(cache_file, "updates", None)
+        file_reader = JSONFileReader(cache_file, "updates")
         if (args['force'] or \
             (file_reader.relative_time() > cache_time)):
             url_reader = URLReader(url)
@@ -37,9 +56,13 @@ def main(args: argparse.Namespace):
     except FileNotFoundException:
         url_reader = URLReader(url)
         url_reader.save_as_file(cache_file)
-        file_reader = JSONFileReader(cache_file, "updates", None)
+        file_reader = JSONFileReader(cache_file, "updates")
     finally:
         updates = file_reader.read()
+        if not updates:
+            print(colored("No Updates Found. Check your arguments.", "red"))
+            exit(0)
+
         for update in updates:
             print_update_info(update, "green")
 
@@ -51,12 +74,9 @@ if __name__ == "__main__":
     )
 
     parser.add_argument('name', help='Name of the package')
-    dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version')
+    dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version', default="f")
     parser.add_argument('-f', '--force', help="Sync cached info with Fedora Updates System", action='store_true')
     parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='0.4 (beta)')
     args = parser.parse_args()
-
-    if not args.distro_version.lower().startswith(("f", "o")):
-        raise argparse.ArgumentError(dv , "Invalid Distro version")
     
     main(args)
