@@ -28,25 +28,38 @@ classifiers = [
 
 [tool.poetry.dependencies]
 altgraph = "^0.17.3"
+attrs = "^22.2.0"
 certifi = "^2022.12.7"
 charset-normalizer = "^3.0.1"
 idna = "^3.4"
+iniconfig = "^2.0.0"
+packaging = "^23.0"
 pyinstaller = "^5.7.0"
 pyinstaller-hooks-contrib = "^2022.15"
+pytest = "7.2.1"
 requests = "^2.28.2"
 termcolor = "^2.2.0"
 urllib3 = "^1.26.14"
 
 [tool.poetry.dev-dependencies]
 altgraph = "*"
+attrs = "*"
 certifi = "*"
 charset-normalizer = "*"
 idna = "*"
+iniconfig = "*"
+packaging = "*"
 pyinstaller = "*"
 pyinstaller-hooks-contrib = "*"
+pytest = "*"
 requests = "*"
 termcolor = "*"
 urllib3 = "*"
 
 [tool.poetry.urls]
 repo = "https://github.com/dkvc/gpkgstatus"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
