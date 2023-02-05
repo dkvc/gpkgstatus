@@ -24,7 +24,6 @@ class TestURLReader():
 
 
 class TestSavedFiles():
-
     def test_saved_file_exists(self):
         filename = "test_file.json"
         # python.org
