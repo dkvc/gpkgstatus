@@ -5,7 +5,7 @@ from pathlib import Path
 from sys import exit
 from tempfile import gettempdir
 from termcolor import colored
-
+from time import time
 
 class JSONFileReader:
     
@@ -45,3 +45,6 @@ class JSONFileReader:
         except PermissionError:
             print(colored("Error: Permission denied. Please check temp directory permissions.", "red"))
             exit(1)
+
+    def relative_time(self):
+        return time.time() - os.path.getmtime(self._path)
