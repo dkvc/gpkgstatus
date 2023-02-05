@@ -38,12 +38,12 @@ def print_update_info(update: dict, status_color: str):
 
 def main(args: argparse.Namespace):
     args = vars(args)
+    cache_time = 3600 # 1 hr
 
     if args["distro_version"]:
         cache_file = f"{args['name']}_{args['distro_version']}.json"
     else:
         cache_file = f"{args['name']}.json"
-    cache_time = 3600 # 1 hr
 
     url = select_url(args['name'], args['distro_version'].lower())
     
