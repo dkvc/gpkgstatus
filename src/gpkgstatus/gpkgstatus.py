@@ -8,7 +8,6 @@ def select_url(name: str, version: int=None):
     first_letter = version[0]
     urls = {
         "f": f"https://bodhi.fedoraproject.org/updates/?search={name}",
-        "o": None,
     }
 
     if first_letter in urls:
