@@ -72,7 +72,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog = "gpkgstatus",
         description= "Get Current Package Status from Fedora Updates System",
-        usage = "gpkgstatus [-dv DISTRO_VERSION] name"
+        usage = "gpkgstatus [-dv DISTRO_VERSION] [-f] name"
     )
 
     parser.add_argument('name', help='Name of the package')
