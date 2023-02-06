@@ -1,6 +1,6 @@
 from pytest import raises
 
-import gpkgstatus as gpkg
+import gpkgstatus.gpkgstatus as gpkg
 
 class TestFedoraUpdates():
     def test_search_package(self, capsys):

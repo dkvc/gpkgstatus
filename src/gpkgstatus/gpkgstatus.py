@@ -1,7 +1,7 @@
 import argparse
 
-from JSONFileReader import JSONFileReader, FileNotFoundException
-from URLReader import URLReader
+from gpkgstatus.JSONFileReader import JSONFileReader, FileNotFoundException
+from gpkgstatus.URLReader import URLReader
 from termcolor import colored
 
 def select_url(name: str, version: int=None):
@@ -70,19 +70,3 @@ def main(args: dict):
 
         for update in updates:
             print_update_info(update, "green")
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        prog = "gpkgstatus",
-        description= "Get Current Package Status from Fedora Updates System",
-        usage = "gpkgstatus [-dv <DISTRO_VERSION>] [-l <number_of_pkgs>] [-f] <package_name>"
-    )
-
-    parser.add_argument('name', help='Name of the package')
-    dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version', default="f", nargs=1)
-    parser.add_argument('-f', '--force', help="Sync cached info with Fedora Updates System", action='store_true')
-    parser.add_argument('-l', '--limit', help="Maximum limit on number of packages shown for package search", default="5", nargs=1)
-    parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='0.5 (beta)')
-    args = parser.parse_args()
-    
-    main(vars(args))

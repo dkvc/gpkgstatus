@@ -4,7 +4,7 @@ from pathlib import Path
 from pytest import raises
 from tempfile import gettempdir
 
-from URLReader import URLReader
+from gpkgstatus.URLReader import URLReader
 
 
 """
