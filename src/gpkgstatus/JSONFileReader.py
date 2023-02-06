@@ -49,5 +49,7 @@ class JSONFileReader:
             print(colored("Error: Permission denied. Please check temp directory permissions.", "red"))
             exit(1)
 
+        return searched_info
+
     def relative_time(self):
         return time() - os.path.getmtime(self._path)

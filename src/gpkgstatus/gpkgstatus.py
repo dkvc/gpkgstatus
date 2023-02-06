@@ -13,7 +13,7 @@ def select_url(name: str, version: int=None):
     if first_letter in urls:
         url = urls[first_letter]
     else:
-        print(colored(f"Error: Invalid Distribution", "red"))
+        print(colored("Error: Invalid Distribution. Format: f{version}", "red"))
         exit(1)
     
     if len(version) > 1:
@@ -37,13 +37,16 @@ def print_update_info(update: dict, status_color: str):
 
 def main(args: dict):
     cache_time = 3600 # 1 hr
+    distro_version = args["distro_version"][0]
+    
+    try:
+        limit = int(args['limit'][0])
+    except ValueError:
+        print(colored("You must enter an integer value.", "red"))
+        exit(0)
 
-    if args["distro_version"]:
-        cache_file = f"{args['name']}_{args['distro_version']}.json"
-    else:
-        cache_file = f"{args['name']}.json"
-
-    url = select_url(args['name'], args['distro_version'].lower())
+    cache_file = f"{args['name']}_{distro_version}.json"
+    url = select_url(args['name'], distro_version.lower())
     
     try:
         file_reader = JSONFileReader(cache_file, "updates")
@@ -59,7 +62,7 @@ def main(args: dict):
         file_reader = JSONFileReader(cache_file, "updates")
         
     finally:
-        updates = file_reader.read()
+        updates = file_reader.read(limit)
         
         if not updates:
             print(colored("No Updates Found. Check your arguments.", "red"))
@@ -72,12 +75,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog = "gpkgstatus",
         description= "Get Current Package Status from Fedora Updates System",
-        usage = "gpkgstatus [-dv DISTRO_VERSION] [-f] name"
+        usage = "gpkgstatus [-dv <DISTRO_VERSION>] [-l <number_of_pkgs>] [-f] <package_name>"
     )
 
     parser.add_argument('name', help='Name of the package')
-    dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version', default="f")
+    dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version', default="f", nargs=1)
     parser.add_argument('-f', '--force', help="Sync cached info with Fedora Updates System", action='store_true')
+    parser.add_argument('-l', '--limit', help="Maximum limit on number of packages shown for package search", default="5", nargs=1)
     parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='0.5 (beta)')
     args = parser.parse_args()
     
