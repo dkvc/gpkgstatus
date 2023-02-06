@@ -8,6 +8,7 @@ It allows you to search for a specific package and get information about its cur
 ## Current Build Status
 
 [![Python Tests](https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml/badge.svg?branch=main)](https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml)
+[![CodeQL](https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml)
 
 ## Current Release Status
 
