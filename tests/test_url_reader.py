@@ -38,8 +38,8 @@ class TestSavedFiles():
 
     def test_saved_is_file(self):
         filename = "test_file.json"
-        # github.com main webpage
-        URLReader("https://github.com/webgl-globe/data/data.json").save_as_file(filename)
+        # getfedora.org
+        URLReader("https://getfedora.org/magazine.json").save_as_file(filename)
         
         path = Path(os.path.join(gettempdir(), filename))
         is_file = path.is_file()
