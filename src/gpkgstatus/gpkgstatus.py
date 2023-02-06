@@ -1,7 +1,7 @@
 import argparse
 
-from gpkgstatus.JSONFileReader import JSONFileReader, FileNotFoundException
-from gpkgstatus.URLReader import URLReader
+from JSONFileReader import JSONFileReader, FileNotFoundException
+from URLReader import URLReader
 from termcolor import colored
 
 def select_url(name: str, version: int=None):
