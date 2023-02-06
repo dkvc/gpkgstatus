@@ -16,7 +16,7 @@ class TestURLReader():
     
     def test_site_404_not_found(self):
         with raises(Exception):
-            URLReader("https://httpstat.us/404")
+            URLReader("https://xkcd.com/404")
 
     def test_site_does_not_exist(self):
         with raises(SystemExit):
@@ -38,8 +38,8 @@ class TestSavedFiles():
 
     def test_saved_is_file(self):
         filename = "test_file.json"
-        # getfedora.org
-        URLReader("https://getfedora.org/magazine.json").save_as_file(filename)
+        # console status on python.org
+        URLReader("https://console.python.org/python-dot-org-live-consoles-status").save_as_file(filename)
         
         path = Path(os.path.join(gettempdir(), filename))
         is_file = path.is_file()
