@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gpkgstatus"
-version = "0.5-beta"
+version = "1.0"
 description = "Get Current Package Status from Fedora Updates System"
 author = "Dhanush Kovi"
 license = "GPL-2.0"
@@ -61,5 +61,5 @@ repo = "https://github.com/dkvc/gpkgstatus"
 
 [tool.pytest.ini_options]
 pythonpath = [
-  "src/gpkgstatus"
+  "src"
 ]
