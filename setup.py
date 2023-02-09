@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open("README.md") as readme_file:
     README = readme_file.read()
@@ -12,6 +12,7 @@ with open("dev-reqs.txt") as req_file:
 setup(
     name="gpkgstatus",
     version="1.0",
+    packages = find_packages(),
     license="GPL-2.0",
     python_requires=">=3.8",
     author="Dhanush Kovi",

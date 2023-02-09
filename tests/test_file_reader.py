@@ -1,4 +1,4 @@
-from gpkgstatus.JSONFileReader import JSONFileReader, FileNotFoundException
+from JSONFileReader import JSONFileReader, FileNotFoundException
 from pytest import raises
 
 
