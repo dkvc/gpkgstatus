@@ -5,9 +5,9 @@ USER dev
 
 WORKDIR /home/dev/
 
-COPY requirements.txt /home/dev/
-RUN pip3 install --no-cache-dir -r requirements.txt
+COPY dev-reqs.txt /home/dev/
+RUN pip3 install --no-cache-dir -r dev-reqs.txt
 
-LABEL name="gpkgstatus-dev"
-LABEL version="0.4-beta"
+LABEL name="gpkgstatus"
+LABEL version="1.0"
 LABEL description="Dev environment for gpkgstatus"
