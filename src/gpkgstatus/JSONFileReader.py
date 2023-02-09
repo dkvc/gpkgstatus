@@ -8,11 +8,12 @@ from termcolor import colored
 from time import time
 from typing import Union
 
+
 class FileNotFoundException(Exception):
-        pass
+    pass
+
 
 class JSONFileReader:
-    
     _keys: list = []
     _path: Path = Path()
 
@@ -20,19 +21,19 @@ class JSONFileReader:
         if len(_keys) < 1:
             print(colored("Error: At least one key is required"))
             exit(1)
-        
+
         if not isinstance(_path, Path):
             _path = Path(os.path.join(gettempdir(), _path))
-        
+
         if not (_path.exists() and _path.is_file()):
             raise FileNotFoundException()
 
         self._keys = list(_keys)
         self._path = _path
-    
-    def read(self, limit: int=5):
+
+    def read(self, limit: int = 5):
         try:
-            with open(self._path, 'r') as file:
+            with open(self._path, "r") as file:
                 data = jsonload(file)
                 searched_info = []
 
@@ -43,10 +44,15 @@ class JSONFileReader:
                         for value in data[key]:
                             if len(searched_info) >= limit:
                                 return searched_info
-                            
+
                             searched_info.append(value)
         except PermissionError:
-            print(colored("Error: Permission denied. Please check temp directory permissions.", "red"))
+            print(
+                colored(
+                    "Error: Permission denied. Please check temp directory permissions.",
+                    "red",
+                )
+            )
             exit(1)
 
         return searched_info
