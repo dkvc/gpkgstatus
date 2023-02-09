@@ -11,10 +11,7 @@ with open("dev-reqs.txt") as req_file:
 
 setup(
     name="gpkgstatus",
-    version="1.2.1",
-    packages = find_packages(
-        where="src/gpkgstatus"
-    ),
+    version="1.2.2",
     license="GPL-2.0",
     python_requires=">=3.8",
     author="Dhanush Kovi",
@@ -26,7 +23,7 @@ setup(
     extras_require={
         "dev": DEV_REQS,
     },
-    scripts=["src/gpkgstatus/gpkgstatus"],
+    scripts=["bin/gpkgstatus"],
     keywords=[
         "fedora",
         "updates",
