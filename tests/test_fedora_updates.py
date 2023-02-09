@@ -1,6 +1,6 @@
 from pytest import raises
 
-import gpkgstatus as gpkg
+import main as gpkg
 
 
 class TestFedoraUpdates:
