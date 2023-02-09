@@ -11,7 +11,7 @@ with open("dev-reqs.txt") as req_file:
 
 setup(
     name="gpkgstatus",
-    version="1.2.2",
+    version="1.3.1",
     license="GPL-2.0",
     python_requires=">=3.8",
     author="Dhanush Kovi",
@@ -34,7 +34,7 @@ setup(
         "bodhi",
     ],
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Topic :: Utilities",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
