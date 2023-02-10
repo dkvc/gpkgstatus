@@ -14,7 +14,7 @@ if __name__ == "__main__":
     dv = parser.add_argument('-d', '--distro-version', help='Checks package status for corresponding Fedora version', default="f", nargs=1)
     parser.add_argument('-f', '--force', help="Sync cached info with Fedora Updates System", action='store_true')
     parser.add_argument('-l', '--limit', help="Maximum limit on number of packages shown for package search", default="5", nargs=1)
-    parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='1.0')
+    parser.add_argument('-v', '--version', help='Returns gpkgstatus version', action='version', version='1.4.1')
     args = parser.parse_args()
 
     main(vars(args))
