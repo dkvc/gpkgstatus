@@ -11,7 +11,7 @@ with open("dev-reqs.txt") as req_file:
 
 setup(
     name="gpkgstatus",
-    version="1.4.1",
+    version="1.4.2", # also change in bin/gpkgstatus
     license="GPL-2.0",
     python_requires=">=3.8",
     author="Dhanush Kovi",

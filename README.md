@@ -10,10 +10,16 @@ It allows you to search for a specific package and get information about its cur
 [![Python Tests](https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml/badge.svg?branch=main)](https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml)
 [![CodeQL](https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml)
 
+## Current PyPI Status
+
+[![PyPI version](https://img.shields.io/pypi/v/gpkgstatus)](https://pypi.org/project/gpkgstatus/)
+[![Dep Status](https://img.shields.io/librariesio/release/pypi/gpkgstatus)](https://pypi.org/project/gpkgstatus/)
+[![Python support](https://img.shields.io/pypi/pyversions/gpkgstatus)](https://pypi.org/project/gpkgstatus/)
+
 ## Current Release Status
 
-[![Last Pre-Release Date](https://img.shields.io/github/release-date-pre/dkvc/gpkgstatus?label=Preview%20Release&)](https://github.com/dkvc/gpkgstatus/releases)
-[![Last Release Date](https://img.shields.io/github/release-date/dkvc/gpkgstatus?label=Stable%20Release&)](https://github.com/dkvc/gpkgstatus/releases)
+[![Last Pre-Release Date](https://img.shields.io/github/release-date-pre/dkvc/gpkgstatus?label=Github%20Release%20(Preview)&)](https://github.com/dkvc/gpkgstatus/releases)
+[![Last Release Date](https://img.shields.io/github/release-date/dkvc/gpkgstatus?label=Github%20Release&)](https://github.com/dkvc/gpkgstatus/releases)
 
 ## Features
 
