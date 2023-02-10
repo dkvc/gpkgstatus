@@ -1,5 +1,3 @@
-import argparse
-
 from gpkgstatus.JSONFileReader import JSONFileReader, FileNotFoundException
 from gpkgstatus.URLReader import URLReader
 from termcolor import colored
