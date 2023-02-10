@@ -1,4 +1,4 @@
-name: Publish Package to PyPI
+name: Publish Package
 
 on:
   workflow_run:
@@ -31,6 +31,13 @@ jobs:
         --wheel
         --outdir dist/
         .
+
+    # Actually publish to TestPyPI
+    - name: Publish distribution 📦 to Test PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/
   
     # Actually publish to PyPI
     - name: Publish distribution 📦 to PyPI
