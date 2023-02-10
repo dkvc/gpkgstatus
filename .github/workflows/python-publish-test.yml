@@ -1,9 +1,6 @@
-name: Publish Package to PyPI
+name: Publish Package to TestPyPI
 
 on:
-  push:
-    tags:
-      - "v*"
   workflow_run:
     workflows: ["Unit Tests"]
     types:
@@ -34,9 +31,10 @@ jobs:
         --wheel
         --outdir dist/
         .
-  
-    # Actually publish to PyPI
-    - name: Publish distribution 📦 to PyPI
+        
+    # Actually publish to TestPyPI
+    - name: Publish distribution 📦 to Test PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/
