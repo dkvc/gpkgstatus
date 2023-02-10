@@ -1,4 +1,23 @@
-from setuptools import setup, find_packages
+import codecs
+import os.path
+
+from setuptools import setup
+
+
+def read(rel_path):
+    here = os.path.abspath(os.path.dirname(__file__))
+    with codecs.open(os.path.join(here, rel_path), "r") as fp:
+        return fp.read()
+
+
+def get_version(rel_path):
+    for line in read(rel_path).splitlines():
+        if line.startswith("__version__"):
+            delim = '"' if '"' in line else "'"
+            return line.split(delim)[1]
+    else:
+        raise RuntimeError("Unable to find version string.")
+
 
 with open("README.md") as readme_file:
     README = readme_file.read()
@@ -11,7 +30,7 @@ with open("dev-reqs.txt") as req_file:
 
 setup(
     name="gpkgstatus",
-    version="1.4.2", # also change in bin/gpkgstatus
+    version=get_version("package/__init__.py"),
     license="GPL-2.0",
     python_requires=">=3.8",
     author="Dhanush Kovi",
