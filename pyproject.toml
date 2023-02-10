@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "gpkgstatus"
+description = "Get Current Package Status from Fedora Updates System"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "GPL-2.0-or-later"}
+dynamic = ["version", "dependencies", "optional-dependencies"]
+
+authors = [
+    {name = "Dhanush Kovi"}
+]
+
+keywords = [
+    "fedora",
+    "updates",
+    "package",
+    "status",
+    "fedora-updates",
+    "gpkgstatus",
+    "bodhi",
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Topic :: Utilities",
+    
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Operating System :: OS Independent",
+    
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+
+[project.urls]
+repository = "https://github.com/dkvc/gpkgstatus"
+
+
+[tool.setuptools.dynamic]
+version = {attr = "gpkgstatus.__version__"}
+dependencies = {file = "requirements.txt"}
+optional-dependencies.dev = {file = "dev-reqs.txt"}
+
+[tool.setuptools]
+script-files = ["bin/gpkgstatus"]
+
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
