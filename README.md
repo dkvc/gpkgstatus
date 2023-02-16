@@ -33,10 +33,16 @@ It allows you to search for a specific package and get information about its cur
 
 ## Installation
 
-1. Download the executable file for your operating system from the ![Releases](https://github.com/dkvc/gpkgstatus/releases) section of this repository.
-2. Make sure the file is executable (e.g. chmod +x gpkgstatus on Linux).
+There are two ways of installing gpgkstatus:
 
-**Note:** If you want to run the file anywhere, move the file to a directory in your system's PATH (usually /usr/local/bin)
+1. **Using pip:** You can use `pip install gpkgstatus` and restart your terminal. Now you can use it! :tada:
+2. **(Unsupported) Using executables from Github:** You can download executable from Releases and use it directly. Make sure to set it as executable on Linux.
+
+**Note:** If you want to run the file anywhere when using executable from Github, move the file to a directory in your system's PATH (usually /usr/local/bin)
+
+### Why Way 2 is unsupported?
+
+You have to update executable manually!
 
 ## Usage
 
