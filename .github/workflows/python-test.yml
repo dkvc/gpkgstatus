@@ -9,7 +9,7 @@
 # - test: Pylint and Validate pyproject.toml for errors
 # test with pytest on supported python versions.
 
-name: Unit Tests
+name: Tests
 
 on:
   push:
