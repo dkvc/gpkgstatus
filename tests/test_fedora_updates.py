@@ -40,7 +40,9 @@ class TestFedoraUpdates:
             )
 
         captured = capsys.readouterr()
-        assert captured.out == "Error: Invalid Distribution Release. Format: f{version}\n"
+        assert (
+            captured.out == "Error: Invalid Distribution Release. Format: f{version}\n"
+        )
 
     def search_term_does_not_exist(self, capsys):
         search_term = "linux_in_toaster"
