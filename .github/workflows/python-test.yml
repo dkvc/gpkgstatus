@@ -61,6 +61,6 @@ jobs:
         run: |
           validate-pyproject pyproject.toml
 
-    - name: Test with pytest
-      run: |
-        pytest .
+      - name: Test with pytest
+        run: |
+          pytest .
