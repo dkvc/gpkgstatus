@@ -12,6 +12,8 @@
 import argparse
 import sys
 
+from typing import List
+
 from termcolor import colored
 
 from gpkgstatus.utils.json_file_reader import FileNotFoundException, JSONFileReader
@@ -19,7 +21,7 @@ from gpkgstatus.utils.url_reader import URLReader
 from gpkgstatus import __version__
 
 
-def select_url(name: str, version: int = None):
+def select_url(name: str, version: List[str]):
     """Selects url based on name based on corresponding release \
         version if specified or else globally.
 

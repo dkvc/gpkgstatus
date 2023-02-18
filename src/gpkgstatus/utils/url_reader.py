@@ -8,10 +8,12 @@ Raises:
 """
 import json
 import sys
+
 from os.path import join
 from tempfile import gettempdir
 
 import requests
+
 from termcolor import colored
 
 
@@ -77,7 +79,7 @@ class URLReader:
             sys.exit(1)
 
     # pylint:disable=duplicate-code
-    def save_as_file(self, filename: str, data: str = None):
+    def save_as_file(self, filename: str, data: str = ""):
         """Saves JSON response in a file.
 
         If PermissionError is raised, then the program halts with exit
