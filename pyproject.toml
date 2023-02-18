@@ -42,17 +42,15 @@ classifiers = [
 
 
 [project.urls]
-repository = "https://github.com/dkvc/gpkgstatus"
+Repository = "https://github.com/dkvc/gpkgstatus"
 
+[project.scripts]
+gpkgstatus = "gpkgstatus.gpkgstatus:cli"
 
 [tool.setuptools.dynamic]
 version = {attr = "gpkgstatus.__version__"}
 dependencies = {file = "requirements.txt"}
 optional-dependencies.dev = {file = "dev-reqs.txt"}
-
-[tool.setuptools]
-script-files = ["bin/gpkgstatus"]
-
 
 [tool.pytest.ini_options]
 pythonpath = [
