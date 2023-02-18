@@ -7,7 +7,7 @@ class TestFedoraUpdates:
     def test_search_package(self, capsys):
         search_term = "kernel"
 
-        gpkg.main(
+        gpkg.search_pkg(
             {"name": search_term, "distro_version": "f", "force": False, "limit": "5"}
         )
 
@@ -18,7 +18,7 @@ class TestFedoraUpdates:
     def test_valid_distro(self, capsys):
         search_term = "python"
 
-        gpkg.main(
+        gpkg.search_pkg(
             {"name": search_term, "distro_version": "f37", "force": False, "limit": "8"}
         )
 
@@ -30,7 +30,7 @@ class TestFedoraUpdates:
         search_term = "kernel"
 
         with raises(SystemExit):
-            gpkg.main(
+            gpkg.search_pkg(
                 {
                     "name": search_term,
                     "distro_version": "d11",
@@ -40,12 +40,12 @@ class TestFedoraUpdates:
             )
 
         captured = capsys.readouterr()
-        assert captured.out == "Error: Invalid Distribution. Format: f{version}\n"
+        assert captured.out == "Error: Invalid Distribution Release. Format: f{version}\n"
 
     def search_term_does_not_exist(self, capsys):
         search_term = "linux_in_toaster"
 
-        gpkg.main(
+        gpkg.search_pkg(
             {"name": search_term, "distro_version": "f", "force": False, "limit": "8"}
         )
 
@@ -56,7 +56,7 @@ class TestFedoraUpdates:
         search_term = "openjdk"
 
         with raises(SystemExit):
-            gpkg.main(
+            gpkg.search_pkg(
                 {
                     "name": search_term,
                     "distro_version": "f",
@@ -71,7 +71,7 @@ class TestFedoraUpdates:
     def test_limit_too_high(self, capsys):
         search_term = "openjdk"
 
-        gpkg.main(
+        gpkg.search_pkg(
             {"name": search_term, "distro_version": "f", "force": False, "limit": "8"}
         )
 
