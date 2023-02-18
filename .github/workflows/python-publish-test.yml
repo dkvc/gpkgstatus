@@ -9,12 +9,12 @@ name: Publish Package on TestPyPI
 on:
   workflow_run:
     workflows: ["Unit Tests"]
+    branches: [main]
     types:
       - completed
 
 jobs:
   build-n-publish:
-    needs: pylint-n-validate-pyproject
     name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
     runs-on: ubuntu-latest
 
