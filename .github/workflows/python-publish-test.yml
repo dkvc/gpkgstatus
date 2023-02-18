@@ -1,3 +1,9 @@
+# This workflow will:
+# run only after "Unit Tests" workflow is passed.
+
+# - build-n-publish: Build and Publish Python package
+# to TestPyPI.
+
 name: Publish Package on TestPyPI
 
 on:
@@ -8,21 +14,25 @@ on:
 
 jobs:
   build-n-publish:
+    needs: pylint-n-validate-pyproject
     name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
       with:
-        python-version: "3.10"
+        python-version: "3.11"
+
     - name: Install pypa/build
       run: >-
         python -m
         pip install
         build
         --user
+
     - name: Build a binary wheel and a source tarball
       run: >-
         python -m
