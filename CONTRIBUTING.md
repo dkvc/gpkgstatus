@@ -13,7 +13,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 - [I Want To Contribute](#i-want-to-contribute)
   - [Reporting Bugs](#reporting-bugs)
   - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Setting Up your Development Environment](#setup)
+  - [Setting Up your Development Environment](#development-setup)
   - [Improving The Documentation](#improving-the-documentation)
 - [Styleguides](#styleguides)
   - [Commit Messages](#commit-messages)
@@ -72,8 +72,6 @@ Once it's filed:
 - A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `needs-repro`. Bugs with the `needs-repro` tag will not be addressed until they are reproduced.
 - If the team is able to reproduce the issue, it will be marked `needs-fix`, as well as possibly other tags (such as `critical`), and the issue will be left to be implemented by someone.
 
-<!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
-
 ### Suggesting Enhancements
 
 This section guides you through submitting an enhancement suggestion for gpgkstatus, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
@@ -86,11 +84,13 @@ This section guides you through submitting an enhancement suggestion for gpgksta
 - Perform a [search](https://github.com/dkvc/gpgkstatus/issues) in issues to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your enhancement fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature.
 
-### Setup
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
+### Development Setup
 
--->
+1. Most of the development is done on `docker` or `podman`. You can install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation) from corresponding websites.
+
+2. Using [Dockerfile](https://github.com/dkvc/gpkgstatus/blob/main/.devcontainer/Dockerfile) on repository, you can create a development environment on container.
+
+3. Get started by looking through issues or making an [enhancement](#suggesting-enhancements)! :tada:
 
 ### Improving The Documentation
 

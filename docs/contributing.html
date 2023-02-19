@@ -1460,7 +1460,7 @@
                         <ul>
                             <li><a href="#reporting-bugs">Reporting Bugs</a></li>
                             <li><a href="#suggesting-enhancements">Suggesting Enhancements</a></li>
-                            <li><a href="#setup">Setting Up your Development Environment</a></li>
+                            <li><a href="#development-setup">Setting Up your Development Environment</a></li>
                             <li><a href="#improving-the-documentation">Improving The Documentation</a></li>
                         </ul>
                     </li>
@@ -1562,8 +1562,6 @@
                         implemented by someone.</li>
                 </ul>
 
-                <!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
-
                 <h3 id="suggesting-enhancements">Suggesting Enhancements</h3>
 
                 <p>This section guides you through submitting an enhancement suggestion for gpgkstatus,
@@ -1586,12 +1584,25 @@
                         make a strong case to convince the project's developers of the merits of this feature.</li>
                 </ul>
 
-                <h3 id="setup">Setup</h3>
+                <h3 id="development-setup">Development Setup</h3>
 
-                <!-- TODO
-include Setup of env, IDE and typical getting started instructions?
-
--->
+                <ol>
+                    <li>
+                        <p>Most of the development is done on <code>docker</code> or <code>podman</code>. You can
+                            install <a href="https://docs.docker.com/get-docker/">Docker</a> or <a
+                                href="https://podman.io/getting-started/installation">Podman</a> from corresponding
+                            websites.</p>
+                    </li>
+                    <li>
+                        <p>Using <a
+                                href="https://github.com/dkvc/gpkgstatus/blob/main/.devcontainer/Dockerfile">Dockerfile</a>
+                            on repository, you can create a development environment on container.</p>
+                    </li>
+                    <li>
+                        <p>Get started by looking through issues or making an <a
+                                href="#suggesting-enhancements">enhancement</a>! :tada:</p>
+                    </li>
+                </ol>
 
                 <h3 id="improving-the-documentation">Improving The Documentation</h3>
 
