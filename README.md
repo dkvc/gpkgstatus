@@ -69,4 +69,4 @@ options:
 
 ## Contributing
 
-You are welcome to contribute to this project.
+You are welcome to contribute to this project. Make sure to read [Contributing Guidelines](https://github.com/dkvc/gpkgstatus/blob/main/CONTRIBUTING.md). If you have any questions regarding contributing to this project, you can open an issue about it.

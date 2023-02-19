@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="pdoc 12.3.1" />
-    <title>gpkgstatus API documentation</title>
+    <title>Contributing Guidelines for gpkgstatus</title>
 
     <style>
         /*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */
@@ -1397,31 +1397,35 @@
                     d='M4 7h22M4 15h22M4 23h22' />
             </svg></label>
         <input id="togglestate" type="checkbox" aria-hidden="true" tabindex="-1">
-        <div>
+        <div> <a class="pdoc-button module-list-button" href="./gpkgstatus.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z" />
+                    <path fill-rule="evenodd"
+                        d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                </svg> &nbsp;gpkgstatus</a>
 
+
+            <input type="search" placeholder="Search..." role="searchbox" aria-label="search" pattern=".+" required>
 
             <h2>Contents</h2>
             <ul>
-                <li><a href="#gpkgstatus">gpkgstatus</a>
+                <li><a href="#contributing-to-gpgkstatus">Contributing to <strong>gpgkstatus</strong></a>
                     <ul>
-                        <li><a href="#get-current-package-status-from-fedora-updates-system">Get Current Package Status
-                                from Fedora Updates System</a></li>
-                        <li><a href="#current-build-status">Current Build Status</a></li>
-                        <li><a href="#current-pypi-status">Current PyPI Status</a></li>
-                        <li><a href="#current-release-status">Current Release Status</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#installation">Installation</a></li>
-                        <li><a href="#usage">Usage</a></li>
-                        <li><a href="#contributing">Contributing</a></li>
+                        <li><a href="#table-of-contents">Table of Contents</a></li>
+                        <li><a href="#code-of-conduct">Code of Conduct</a></li>
+                        <li><a href="#i-have-a-question">I Have a Question</a></li>
+                        <li><a href="#i-want-to-contribute">I Want To Contribute</a></li>
+                        <li><a href="#styleguides">Styleguides</a></li>
+                        <li><a href="#attribution">Attribution</a></li>
                     </ul>
                 </li>
             </ul>
 
-            <h2>More Information</h2>
-            <ul>
-                <li><a href="./code_of_conduct.html">Code of Conduct</a></li>
-                <li><a href="./contributing.html">Contributing Guidelines</a></li>
-            </ul>
+
+
+
 
             <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev"
                 target="_blank">
@@ -1432,123 +1436,216 @@
     </nav>
     <main class="pdoc">
         <section class="module-info">
-            <h1 class="modulename">
-                gpkgstatus </h1>
 
-            <div class="docstring">
+            <div class="docstring"><!-- omit in toc -->
 
-                <h2 id="get-current-package-status-from-fedora-updates-system">Get Current Package Status from Fedora
-                    Updates System</h2>
+                <h1 id="contributing-to-gpgkstatus">Contributing to <strong>gpgkstatus</strong></h1>
 
-                <p>This program is a command-line tool for checking the status of packages on bodhi.fedoraproject.org.
-                    It allows you to search for a specific package and get information about its current status,
-                    including the update ID, package name, and status.</p>
+                <p>First off, thanks for taking the time to contribute! ❤️</p>
 
-                <p><a href="https://github.com/psf/black"><img
-                            src="https://img.shields.io/badge/code%20style-black-000000" alt="Code Style" /></a>
-                    <a href="https://github.com/PyCQA/pylint"><img
-                            src="https://img.shields.io/badge/linting-pylint-yellowgreen" alt="linting: pylint" /></a>
-                </p>
+                <p>All types of contributions are encouraged and valued. See the <a href="#table-of-contents">Table of
+                        Contents</a> for different ways to help and details about how this project handles them. Please
+                    make sure to read the relevant section before making your contribution. It will make it a lot easier
+                    for us maintainers and smooth out the experience for all involved. The community looks forward to
+                    your contributions. 🎉</p>
 
-                <h2 id="current-build-status">Current Build Status</h2>
+                <!-- omit in toc -->
 
-                <p><a href="https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml"><img
-                            src="https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml/badge.svg?branch=main"
-                            alt="Python Tests" /></a>
-                    <a href="https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml"><img
-                            src="https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml/badge.svg?branch=main"
-                            alt="CodeQL" /></a>
-                </p>
-
-                <h2 id="current-pypi-status">Current PyPI Status</h2>
-
-                <p><a href="https://pypi.org/project/gpkgstatus/"><img src="https://img.shields.io/pypi/v/gpkgstatus"
-                            alt="PyPI version" /></a>
-                    <a href="https://pypi.org/project/gpkgstatus/"><img
-                            src="https://img.shields.io/librariesio/release/pypi/gpkgstatus" alt="Dep Status" /></a>
-                    <a href="https://pypi.org/project/gpkgstatus/"><img
-                            src="https://img.shields.io/pypi/pyversions/gpkgstatus" alt="Python support" /></a>
-                </p>
-
-                <h2 id="current-release-status">Current Release Status</h2>
-
-                <p><a href="https://github.com/dkvc/gpkgstatus/releases"><img
-                            src="https://img.shields.io/github/release-date-pre/dkvc/gpkgstatus?label=Github%20Release%20(Preview)&amp;"
-                            alt="Last Pre-Release Date" /></a>
-                    <a href="https://github.com/dkvc/gpkgstatus/releases"><img
-                            src="https://img.shields.io/github/release-date/dkvc/gpkgstatus?label=Github%20Release&amp;"
-                            alt="Last Release Date" /></a>
-                </p>
-
-                <h2 id="features">Features</h2>
+                <h2 id="table-of-contents">Table of Contents</h2>
 
                 <ul>
-                    <li>Search for a specific package and get its status information.</li>
-                    <li>Option to specify a distro version to check for a specific version of the package.</li>
-                    <li>Caches the previous search results for 60 minutes (1 hour) to avoid DDoS.</li>
-                    <li>Allows you to force a new search, bypassing the cache.</li>
-                    <li>Displays the information in a user-friendly format.</li>
+                    <li><a href="#code-of-conduct">Code of Conduct</a></li>
+                    <li><a href="#i-have-a-question">I Have a Question</a></li>
+                    <li><a href="#i-want-to-contribute">I Want To Contribute</a>
+                        <ul>
+                            <li><a href="#reporting-bugs">Reporting Bugs</a></li>
+                            <li><a href="#suggesting-enhancements">Suggesting Enhancements</a></li>
+                            <li><a href="#setup">Setting Up your Development Environment</a></li>
+                            <li><a href="#improving-the-documentation">Improving The Documentation</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#styleguides">Styleguides</a>
+                        <ul>
+                            <li><a href="#commit-messages">Commit Messages</a></li>
+                            <li><a href="#formatting">Formatting</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
-                <h2 id="installation">Installation</h2>
+                <h2 id="code-of-conduct">Code of Conduct</h2>
 
-                <p>There are two ways of installing gpgkstatus:</p>
+                <p>This project and everyone participating in it is governed by the
+                    <a href="https://github.com/dkvc/gpgkstatus/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>.
+                    By participating, you are expected to uphold this code. If you find any behavior that disregards <a
+                        href="https://github.com/dkvc/gpgkstatus/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>,
+                    please report it to project mantainers.
+                </p>
 
-                <ol>
-                    <li><strong>Using pip:</strong> You can use <code>pip install gpkgstatus</code> and restart your
-                        terminal. Now you can use it!</li>
-                    <li><strong>(Unsupported) Using executables from Github:</strong> You can download executable from
-                        <a href="https://github.com/dkvc/gpkgstatus">Releases</a> and use it directly. Make sure to set
-                        it as executable on Linux.
+                <h2 id="i-have-a-question">I Have a Question</h2>
+
+                <p>Before you ask a question, it is best to search for existing <a
+                        href="https://github.com/dkvc/gpgkstatus/issues">Issues</a> that might help you. In case you
+                    have found a suitable issue and still need clarification, you can write your question in this issue.
+                    It is also advisable to search the internet for answers first.</p>
+
+                <p>If you then still feel the need to ask a question and need clarification, we recommend the following:
+                </p>
+
+                <ul>
+                    <li>Open an <a href="https://github.com/dkvc/gpgkstatus/issues/new">Issue</a>.</li>
+                    <li>Provide as much context as you can about what you're running into.</li>
+                    <li>Provide project and platform versions (python, os, etc), depending on what seems relevant.</li>
+                </ul>
+
+                <p>We will then take care of the issue as soon as possible.</p>
+
+                <h2 id="i-want-to-contribute">I Want To Contribute</h2>
+
+                <h3 id="reporting-bugs">Reporting Bugs</h3>
+
+                <!-- omit in toc -->
+
+                <h4 id="before-submitting-a-bug-report">Before Submitting a Bug Report</h4>
+
+                <p>A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we
+                    ask you to investigate carefully, collect information and describe the issue in detail in your
+                    report. Please complete the following steps in advance to help us fix any potential bug as fast as
+                    possible.</p>
+
+                <ul>
+                    <li>Make sure that you are using the latest version.</li>
+                    <li>Determine if your bug is really a bug and not an error on your side e.g. using incompatible
+                        environment components/versions (Make sure that you have read the <a
+                            href="https://dkvc.github.io/gpkgstatus/">documentation</a>. If you are looking for support,
+                        you might want to check <a href="#i-have-a-question">this section</a>).</li>
+                    <li>To see if other users have experienced (and potentially already solved) the same issue you are
+                        having, check if there is not already a bug report existing for your bug or error in the <a
+                            href="https://github.com/dkvc/gpgkstatus/issues">issues</a>.</li>
+                    <li>Also make sure to search the internet (including Stack Overflow) to see if users outside of the
+                        GitHub community have discussed the issue.</li>
+                    <li>Collect information about the bug:
+                        <ul>
+                            <li>Stack trace (Traceback)</li>
+                            <li>OS, Platform and Version (Windows, Linux, macOS, x86, ARM)</li>
+                            <li>Version of the dependencies and python.s</li>
+                            <li>Possibly your input and the output</li>
+                            <li>Can you reliably reproduce the issue? And can you also reproduce it with older versions?
+                            </li>
+                        </ul>
                     </li>
-                </ol>
+                </ul>
 
-                <p><strong>Note:</strong> If you want to run the file anywhere when using executable from Github, move
-                    the file to a directory in your system's PATH (usually /usr/local/bin)</p>
+                <!-- omit in toc -->
 
-                <h3 id="why-way-2-is-unsupported">Why Way 2 is unsupported?</h3>
+                <h4 id="how-do-i-submit-a-good-bug-report">How Do I Submit a Good Bug Report?</h4>
 
-                <p>You have to update executable manually!</p>
+                <p>We use GitHub issues to track bugs and errors. If you run into an issue with the project:</p>
 
-                <h2 id="usage">Usage</h2>
+                <ul>
+                    <li>Open an <a href="https://github.com/dkvc/gpgkstatus/issues/new">Issue</a>.</li>
+                    <li>Please provide as much context as possible and describe the <em>reproduction steps</em> that
+                        someone else can follow to recreate the issue on their own. This usually includes your code. For
+                        good bug reports you should isolate the problem and create a reduced test case.</li>
+                    <li>Provide the information you collected in the previous section.</li>
+                </ul>
 
-                <p>The program can be used by running the executable file with the following command:</p>
+                <p>Once it's filed:</p>
 
-                <div class="pdoc-code codehilite">
-                    <pre><span></span><code>$<span class="w"> </span>gpkgstatus<span class="w"> </span>-h
+                <ul>
+                    <li>The project team will label the issue accordingly.</li>
+                    <li>A team member will try to reproduce the issue with your provided steps. If there are no
+                        reproduction steps or no obvious way to reproduce the issue, the team will ask you for those
+                        steps and mark the issue as <code>needs-repro</code>. Bugs with the <code>needs-repro</code> tag
+                        will not be addressed until they are reproduced.</li>
+                    <li>If the team is able to reproduce the issue, it will be marked <code>needs-fix</code>, as well as
+                        possibly other tags (such as <code>critical</code>), and the issue will be left to be
+                        implemented by someone.</li>
+                </ul>
 
-usage:<span class="w"> </span>gpkgstatus<span class="w"> </span><span class="o">[</span>-dv<span class="w"> </span>DISTRO_VERSION<span class="o">]</span><span class="w"> </span><span class="o">[</span>-f<span class="o">]</span><span class="w"> </span>name
+                <!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
-Get<span class="w"> </span>Current<span class="w"> </span>Package<span class="w"> </span>Status<span class="w"> </span>from<span class="w"> </span>Fedora<span class="w"> </span>Updates<span class="w"> </span>System
+                <h3 id="suggesting-enhancements">Suggesting Enhancements</h3>
 
-positional<span class="w"> </span>arguments:
-<span class="w">  </span>name<span class="w">                  </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>package
+                <p>This section guides you through submitting an enhancement suggestion for gpgkstatus,
+                    <strong>including completely new features and minor improvements to existing functionality</strong>.
+                    Following these guidelines will help maintainers and the community to understand your suggestion and
+                    find related suggestions.</p>
 
-options:
-<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">            </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
-<span class="w">  </span>-d<span class="w"> </span>DISTRO_VERSION,<span class="w"> </span>--distro-version<span class="w"> </span>DISTRO_VERSION
-<span class="w">                        </span>Checks<span class="w"> </span>package<span class="w"> </span>status<span class="w"> </span><span class="k">for</span><span class="w"> </span>corresponding<span class="w"> </span>Fedora<span class="w"> </span>version
-<span class="w">  </span>-f,<span class="w"> </span>--force<span class="w">           </span>Sync<span class="w"> </span>cached<span class="w"> </span>info<span class="w"> </span>with<span class="w"> </span>Fedora<span class="w"> </span>Updates<span class="w"> </span>System
-<span class="w">  </span>-v,<span class="w"> </span>--version<span class="w">         </span>Returns<span class="w"> </span>gpkgstatus<span class="w"> </span>version
-</code></pre>
-                </div>
+                <!-- omit in toc -->
 
-                <h2 id="contributing">Contributing</h2>
+                <h4 id="submitting-an-enhancement">Submitting an Enhancement</h4>
 
-                <p>You are welcome to contribute to this project. Make sure to read <a
-                        href="./contributing.html">Contributing Guidelines</a>.
-                    If you have any questions regarding contributing to this project, you can open an issue about it.
+                <ul>
+                    <li>Make sure that you are using the latest version.</li>
+                    <li>Read the <a href="https://dkvc.github.io/gpkgstatus/">documentation</a> carefully and find out
+                        if the functionality is already covered, maybe by an individual configuration.</li>
+                    <li>Perform a <a href="https://github.com/dkvc/gpgkstatus/issues">search</a> in issues to see if the
+                        enhancement has already been suggested. If it has, add a comment to the existing issue instead
+                        of opening a new one.</li>
+                    <li>Find out whether your enhancement fits with the scope and aims of the project. It's up to you to
+                        make a strong case to convince the project's developers of the merits of this feature.</li>
+                </ul>
+
+                <h3 id="setup">Setup</h3>
+
+                <!-- TODO
+include Setup of env, IDE and typical getting started instructions?
+
+-->
+
+                <h3 id="improving-the-documentation">Improving The Documentation</h3>
+
+                <p>Most of the documentation is generated using <a href="https://pdoc.dev/">pdoc</a>. You can update the
+                    docstrings and <a href="https://pdoc.dev/">pdoc</a> will automatically generate new documentation.
+                    You can also make improvements to this file and <a
+                        href="https://github.com/dkvc/gpgkstatus/blob/main/README.md">README.md</a> to make project more
+                    welcoming to new users.</p>
+
+                <h2 id="styleguides">Styleguides</h2>
+
+                <h3 id="commit-messages">Commit Messages</h3>
+
+                <p>Commit messages are made in the format of <a href="https://www.conventionalcommits.org/">Conventional
+                        Commits</a>.</p>
+
+                <p>Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p>
+
+                <p><code>&lt;scope&gt;</code> is optional</p>
+
+                <ul>
+                    <li><code>feat</code>: (new feature for the user, not a new feature for build script)</li>
+                    <li><code>fix</code>: (bug fix for the user, not a fix to a build script)</li>
+                    <li><code>docs</code>: (changes to the documentation)</li>
+                    <li><code>style</code>: (formatting, missing semi colons, etc; no production code change)</li>
+                    <li><code>refactor</code>: (refactoring production code, eg. renaming a variable)</li>
+                    <li><code>test</code>: (adding missing tests, refactoring tests; no production code change)</li>
+                    <li><code>chore</code>: (updating grunt tasks etc; no production code change)</li>
+                </ul>
+
+                <h3 id="formatting">Formatting</h3>
+
+                <p>The project code is formatted using linters <a href="https://github.com/PyCQA/pylint">pylint</a> and
+                    <a href="https://github.com/psf/black">black</a>. You are required to format your code in accordance
+                    with mentioned linters. You can ignore some warnings if necessary using syntax provided by
+                    corresponding linters.</p>
+
+                <h2 id="attribution">Attribution</h2>
+
+                <p>Most of guide was generated using <a
+                        href="https://github.com/bttger/contributing-gen">contributing-gen</a>. The list of conventional
+                    commit syntax was taken from <a
+                        href="https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716#file-semantic-commit-messages-md">semantic-commit-messages.md</a>.
                 </p>
             </div>
 
-            <input id="mod-gpkgstatus-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true"
+            <input id="mod-contributing-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true"
                 tabindex="-1">
 
-            <label class="view-source-button" for="mod-gpkgstatus-view-source"><span>View Source</span></label>
+            <label class="view-source-button" for="mod-contributing-view-source"><span>View Source</span></label>
 
             <div class="pdoc-code codehilite">
                 <pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a><span class="sd">.. include:: ../../README.md</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a><span class="sd">.. include:: ../../CONTRIBUTING.md</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">3</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span></pre>
             </div>
@@ -1556,6 +1653,188 @@ options:
 
         </section>
     </main>
+    <script>
+        function escapeHTML(html) {
+            return document.createElement('div').appendChild(document.createTextNode(html)).parentNode.innerHTML;
+        }
+
+        const originalContent = document.querySelector("main.pdoc");
+        let currentContent = originalContent;
+
+        function setContent(innerHTML) {
+            let elem;
+            if (innerHTML) {
+                elem = document.createElement("main");
+                elem.classList.add("pdoc");
+                elem.innerHTML = innerHTML;
+            } else {
+                elem = originalContent;
+            }
+            if (currentContent !== elem) {
+                currentContent.replaceWith(elem);
+                currentContent = elem;
+            }
+        }
+
+        function getSearchTerm() {
+            return (new URL(window.location)).searchParams.get("search");
+        }
+
+        const searchBox = document.querySelector(".pdoc input[type=search]");
+        searchBox.addEventListener("input", function () {
+            let url = new URL(window.location);
+            if (searchBox.value.trim()) {
+                url.hash = "";
+                url.searchParams.set("search", searchBox.value);
+            } else {
+                url.searchParams.delete("search");
+            }
+            history.replaceState("", "", url.toString());
+            onInput();
+        });
+        window.addEventListener("popstate", onInput);
+
+
+        let search, searchErr;
+
+        async function initialize() {
+            try {
+                search = await new Promise((resolve, reject) => {
+                    const script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.async = true;
+                    script.onload = () => resolve(window.pdocSearch);
+                    script.onerror = (e) => reject(e);
+                    script.src = "../search.js";
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                });
+            } catch (e) {
+                console.error("Cannot fetch pdoc search index");
+                searchErr = "Cannot fetch search index.";
+            }
+            onInput();
+
+            document.querySelector("nav.pdoc").addEventListener("click", e => {
+                if (e.target.hash) {
+                    searchBox.value = "";
+                    searchBox.dispatchEvent(new Event("input"));
+                }
+            });
+        }
+
+        function onInput() {
+            setContent((() => {
+                const term = getSearchTerm();
+                if (!term) {
+                    return null
+                }
+                if (searchErr) {
+                    return `<h3>Error: ${searchErr}</h3>`
+                }
+                if (!search) {
+                    return "<h3>Searching...</h3>"
+                }
+
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+                const results = search(term);
+
+                let html;
+                if (results.length === 0) {
+                    html = `No search results for '${escapeHTML(term)}'.`
+                } else {
+                    html = `<h4>${results.length} search result${results.length > 1 ? "s" : ""} for '${escapeHTML(term)}'.</h4>`;
+                }
+                for (let result of results.slice(0, 10)) {
+                    let doc = result.doc;
+                    let url = `../${doc.modulename.replaceAll(".", "/")}.html`;
+                    if (doc.qualname) {
+                        url += `#${doc.qualname}`;
+                    }
+
+                    let heading;
+                    switch (result.doc.kind) {
+                        case "function":
+                            if (doc.fullname.endsWith(".__init__")) {
+                                heading = `<span class="name">${doc.fullname.replace(/\.__init__$/, "")}</span>${doc.signature}`;
+                            } else {
+                                heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span>${doc.signature}`;
+                            }
+                            break;
+                        case "class":
+                            heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
+                            if (doc.bases)
+                                heading += `<wbr>(<span class="base">${doc.bases}</span>)`;
+                            heading += `:`;
+                            break;
+                        case "variable":
+                            heading = `<span class="name">${doc.fullname}</span>`;
+                            if (doc.annotation)
+                                heading += `<span class="annotation">${doc.annotation}</span>`;
+                            if (doc.default_value)
+                                heading += `<span class="default_value">${doc.default_value}</span>`;
+                            break;
+                        default:
+                            heading = `<span class="name">${doc.fullname}</span>`;
+                            break;
+                    }
+                    html += `
+                        <section class="search-result">
+                        <a href="${url}" class="attr ${doc.kind}">${heading}</a>
+                        <div class="docstring">${doc.doc}</div>
+                        </section>
+                    `;
+
+                }
+                return html;
+            })());
+        }
+
+        if (getSearchTerm()) {
+            initialize();
+            searchBox.value = getSearchTerm();
+            onInput();
+        } else {
+            searchBox.addEventListener("focus", initialize, { once: true });
+        }
+
+        searchBox.addEventListener("keydown", e => {
+            if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
+                let focused = currentContent.querySelector(".search-result.focused");
+                if (!focused) {
+                    currentContent.querySelector(".search-result").classList.add("focused");
+                } else if (
+                    e.key === "ArrowDown"
+                    && focused.nextElementSibling
+                    && focused.nextElementSibling.classList.contains("search-result")
+                ) {
+                    focused.classList.remove("focused");
+                    focused.nextElementSibling.classList.add("focused");
+                    focused.nextElementSibling.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "nearest"
+                    });
+                } else if (
+                    e.key === "ArrowUp"
+                    && focused.previousElementSibling
+                    && focused.previousElementSibling.classList.contains("search-result")
+                ) {
+                    focused.classList.remove("focused");
+                    focused.previousElementSibling.classList.add("focused");
+                    focused.previousElementSibling.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "nearest"
+                    });
+                } else if (
+                    e.key === "Enter"
+                ) {
+                    focused.querySelector("a").click();
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

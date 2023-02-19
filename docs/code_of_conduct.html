@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="pdoc 12.3.1" />
-    <title>gpkgstatus API documentation</title>
+    <title>Code of Conduct for gpkgstatus</title>
 
     <style>
         /*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */
@@ -1397,31 +1397,35 @@
                     d='M4 7h22M4 15h22M4 23h22' />
             </svg></label>
         <input id="togglestate" type="checkbox" aria-hidden="true" tabindex="-1">
-        <div>
+        <div> <a class="pdoc-button module-list-button" href="./gpkgstatus.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z" />
+                    <path fill-rule="evenodd"
+                        d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                </svg> &nbsp;gpkgstatus</a>
 
+
+            <input type="search" placeholder="Search..." role="searchbox" aria-label="search" pattern=".+" required>
 
             <h2>Contents</h2>
             <ul>
-                <li><a href="#gpkgstatus">gpkgstatus</a>
+                <li><a href="#code-of-conduct-gpgkstatus">Code of Conduct - <strong>gpgkstatus</strong></a>
                     <ul>
-                        <li><a href="#get-current-package-status-from-fedora-updates-system">Get Current Package Status
-                                from Fedora Updates System</a></li>
-                        <li><a href="#current-build-status">Current Build Status</a></li>
-                        <li><a href="#current-pypi-status">Current PyPI Status</a></li>
-                        <li><a href="#current-release-status">Current Release Status</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#installation">Installation</a></li>
-                        <li><a href="#usage">Usage</a></li>
-                        <li><a href="#contributing">Contributing</a></li>
+                        <li><a href="#our-pledge">Our Pledge</a></li>
+                        <li><a href="#our-standards">Our Standards</a></li>
+                        <li><a href="#our-responsibilities">Our Responsibilities</a></li>
+                        <li><a href="#scope">Scope</a></li>
+                        <li><a href="#enforcement">Enforcement</a></li>
+                        <li><a href="#attribution">Attribution</a></li>
                     </ul>
                 </li>
             </ul>
 
-            <h2>More Information</h2>
-            <ul>
-                <li><a href="./code_of_conduct.html">Code of Conduct</a></li>
-                <li><a href="./contributing.html">Contributing Guidelines</a></li>
-            </ul>
+
+
+
 
             <a class="attribution" title="pdoc: Python API documentation generator" href="https://pdoc.dev"
                 target="_blank">
@@ -1432,123 +1436,102 @@
     </nav>
     <main class="pdoc">
         <section class="module-info">
-            <h1 class="modulename">
-                gpkgstatus </h1>
 
             <div class="docstring">
+                <h1 id="code-of-conduct-gpgkstatus">Code of Conduct - <strong>gpgkstatus</strong></h1>
 
-                <h2 id="get-current-package-status-from-fedora-updates-system">Get Current Package Status from Fedora
-                    Updates System</h2>
+                <h2 id="our-pledge">Our Pledge</h2>
 
-                <p>This program is a command-line tool for checking the status of packages on bodhi.fedoraproject.org.
-                    It allows you to search for a specific package and get information about its current status,
-                    including the update ID, package name, and status.</p>
+                <p>In the interest of fostering an open and welcoming environment, we as
+                    contributors and maintainers pledge to make participation in our project and
+                    our community a harassment-free experience for everyone, regardless of age, body
+                    size, disability, ethnicity, sex characteristics, gender identity and expression,
+                    level of experience, education, socio-economic status, nationality, personal
+                    appearance, race, religion, or sexual identity and orientation.</p>
 
-                <p><a href="https://github.com/psf/black"><img
-                            src="https://img.shields.io/badge/code%20style-black-000000" alt="Code Style" /></a>
-                    <a href="https://github.com/PyCQA/pylint"><img
-                            src="https://img.shields.io/badge/linting-pylint-yellowgreen" alt="linting: pylint" /></a>
-                </p>
+                <h2 id="our-standards">Our Standards</h2>
 
-                <h2 id="current-build-status">Current Build Status</h2>
-
-                <p><a href="https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml"><img
-                            src="https://github.com/dkvc/gpkgstatus/actions/workflows/python-test.yml/badge.svg?branch=main"
-                            alt="Python Tests" /></a>
-                    <a href="https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml"><img
-                            src="https://github.com/dkvc/gpkgstatus/actions/workflows/codeql.yml/badge.svg?branch=main"
-                            alt="CodeQL" /></a>
-                </p>
-
-                <h2 id="current-pypi-status">Current PyPI Status</h2>
-
-                <p><a href="https://pypi.org/project/gpkgstatus/"><img src="https://img.shields.io/pypi/v/gpkgstatus"
-                            alt="PyPI version" /></a>
-                    <a href="https://pypi.org/project/gpkgstatus/"><img
-                            src="https://img.shields.io/librariesio/release/pypi/gpkgstatus" alt="Dep Status" /></a>
-                    <a href="https://pypi.org/project/gpkgstatus/"><img
-                            src="https://img.shields.io/pypi/pyversions/gpkgstatus" alt="Python support" /></a>
-                </p>
-
-                <h2 id="current-release-status">Current Release Status</h2>
-
-                <p><a href="https://github.com/dkvc/gpkgstatus/releases"><img
-                            src="https://img.shields.io/github/release-date-pre/dkvc/gpkgstatus?label=Github%20Release%20(Preview)&amp;"
-                            alt="Last Pre-Release Date" /></a>
-                    <a href="https://github.com/dkvc/gpkgstatus/releases"><img
-                            src="https://img.shields.io/github/release-date/dkvc/gpkgstatus?label=Github%20Release&amp;"
-                            alt="Last Release Date" /></a>
-                </p>
-
-                <h2 id="features">Features</h2>
+                <p>Examples of behavior that contributes to a positive environment for our
+                    community include:</p>
 
                 <ul>
-                    <li>Search for a specific package and get its status information.</li>
-                    <li>Option to specify a distro version to check for a specific version of the package.</li>
-                    <li>Caches the previous search results for 60 minutes (1 hour) to avoid DDoS.</li>
-                    <li>Allows you to force a new search, bypassing the cache.</li>
-                    <li>Displays the information in a user-friendly format.</li>
+                    <li>Demonstrating empathy and kindness toward other people</li>
+                    <li>Being respectful of differing opinions, viewpoints, and experiences</li>
+                    <li>Giving and gracefully accepting constructive feedback</li>
+                    <li>Accepting responsibility and apologizing to those affected by our mistakes,
+                        and learning from the experience</li>
+                    <li>Focusing on what is best not just for us as individuals, but for the
+                        overall community</li>
                 </ul>
 
-                <h2 id="installation">Installation</h2>
+                <p>Examples of unacceptable behavior include:</p>
 
-                <p>There are two ways of installing gpgkstatus:</p>
+                <ul>
+                    <li>The use of sexualized language or imagery, and sexual attention or
+                        advances</li>
+                    <li>Trolling, insulting or derogatory comments, and personal or political attacks</li>
+                    <li>Public or private harassment</li>
+                    <li>Publishing others' private information, such as a physical or email
+                        address, without their explicit permission</li>
+                    <li>Publishing malicious or harmful content in the any form, such as links, words or code
+                        intentionally.</li>
+                    <li>Publishing copyrighted content without approval. If content is deemed to be copyrighted, it must
+                        have prior approval and permission by author of copyrighted material before publishing.</li>
+                    <li>Other conduct which could reasonably be considered inappropriate in a
+                        professional setting</li>
+                </ul>
 
-                <ol>
-                    <li><strong>Using pip:</strong> You can use <code>pip install gpkgstatus</code> and restart your
-                        terminal. Now you can use it!</li>
-                    <li><strong>(Unsupported) Using executables from Github:</strong> You can download executable from
-                        <a href="https://github.com/dkvc/gpkgstatus">Releases</a> and use it directly. Make sure to set
-                        it as executable on Linux.
-                    </li>
-                </ol>
+                <h2 id="our-responsibilities">Our Responsibilities</h2>
 
-                <p><strong>Note:</strong> If you want to run the file anywhere when using executable from Github, move
-                    the file to a directory in your system's PATH (usually /usr/local/bin)</p>
+                <p>Project maintainers are responsible for clarifying and enforcing our standards of
+                    acceptable behavior and will take appropriate and fair corrective action in
+                    response to any instances of unacceptable behavior.</p>
 
-                <h3 id="why-way-2-is-unsupported">Why Way 2 is unsupported?</h3>
+                <p>Project maintainers have the right and responsibility to remove, edit, or reject
+                    comments, commits, code, wiki edits, issues, and other contributions that are
+                    not aligned to this Code of Conduct, or to ban
+                    temporarily or permanently any contributor for other behaviors that they deem
+                    inappropriate, threatening, offensive, or harmful.</p>
 
-                <p>You have to update executable manually!</p>
+                <h2 id="scope">Scope</h2>
 
-                <h2 id="usage">Usage</h2>
+                <p>This Code of Conduct applies within all community spaces, and also applies when
+                    an individual is officially representing the community in public spaces.
+                    Examples of representing our community include using an official e-mail address,
+                    posting via an official social media account, or acting as an appointed
+                    representative at an online or offline event.</p>
 
-                <p>The program can be used by running the executable file with the following command:</p>
+                <h2 id="enforcement">Enforcement</h2>
 
-                <div class="pdoc-code codehilite">
-                    <pre><span></span><code>$<span class="w"> </span>gpkgstatus<span class="w"> </span>-h
+                <p>Instances of abusive, harassing, or otherwise unacceptable behavior may be
+                    reported to the project maintainers responsible for enforcement.
+                    All complaints will be reviewed and investigated promptly and fairly.</p>
 
-usage:<span class="w"> </span>gpkgstatus<span class="w"> </span><span class="o">[</span>-dv<span class="w"> </span>DISTRO_VERSION<span class="o">]</span><span class="w"> </span><span class="o">[</span>-f<span class="o">]</span><span class="w"> </span>name
+                <p>All project maintainers are obligated to respect the privacy and security of the reporter of any
+                    incident.</p>
 
-Get<span class="w"> </span>Current<span class="w"> </span>Package<span class="w"> </span>Status<span class="w"> </span>from<span class="w"> </span>Fedora<span class="w"> </span>Updates<span class="w"> </span>System
+                <h2 id="attribution">Attribution</h2>
 
-positional<span class="w"> </span>arguments:
-<span class="w">  </span>name<span class="w">                  </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>package
-
-options:
-<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">            </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
-<span class="w">  </span>-d<span class="w"> </span>DISTRO_VERSION,<span class="w"> </span>--distro-version<span class="w"> </span>DISTRO_VERSION
-<span class="w">                        </span>Checks<span class="w"> </span>package<span class="w"> </span>status<span class="w"> </span><span class="k">for</span><span class="w"> </span>corresponding<span class="w"> </span>Fedora<span class="w"> </span>version
-<span class="w">  </span>-f,<span class="w"> </span>--force<span class="w">           </span>Sync<span class="w"> </span>cached<span class="w"> </span>info<span class="w"> </span>with<span class="w"> </span>Fedora<span class="w"> </span>Updates<span class="w"> </span>System
-<span class="w">  </span>-v,<span class="w"> </span>--version<span class="w">         </span>Returns<span class="w"> </span>gpkgstatus<span class="w"> </span>version
-</code></pre>
-                </div>
-
-                <h2 id="contributing">Contributing</h2>
-
-                <p>You are welcome to contribute to this project. Make sure to read <a
-                        href="./contributing.html">Contributing Guidelines</a>.
-                    If you have any questions regarding contributing to this project, you can open an issue about it.
+                <p>This Code of Conduct is adapted from the <a href="https://contributor-covenant.org/">Contributor
+                        Covenant</a>, version
+                    <a
+                        href="https://www.contributor-covenant.org/version/1/4/code-of-conduct/code_of_conduct.md">1.4</a>
+                    and
+                    <a
+                        href="https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md">2.0</a>,
+                    and most information was generated by <a
+                        href="https://github.com/bttger/contributing-gen">contributing-gen</a>.
                 </p>
             </div>
 
-            <input id="mod-gpkgstatus-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true"
-                tabindex="-1">
+            <input id="mod-code_of_conduct-view-source" class="view-source-toggle-state" type="checkbox"
+                aria-hidden="true" tabindex="-1">
 
-            <label class="view-source-button" for="mod-gpkgstatus-view-source"><span>View Source</span></label>
+            <label class="view-source-button" for="mod-code_of_conduct-view-source"><span>View Source</span></label>
 
             <div class="pdoc-code codehilite">
                 <pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a><span class="sd">.. include:: ../../README.md</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a><span class="sd">.. include:: ../../CODE_OF_CONDUCT.md</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos">3</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span></pre>
             </div>
@@ -1556,6 +1539,188 @@ options:
 
         </section>
     </main>
+    <script>
+        function escapeHTML(html) {
+            return document.createElement('div').appendChild(document.createTextNode(html)).parentNode.innerHTML;
+        }
+
+        const originalContent = document.querySelector("main.pdoc");
+        let currentContent = originalContent;
+
+        function setContent(innerHTML) {
+            let elem;
+            if (innerHTML) {
+                elem = document.createElement("main");
+                elem.classList.add("pdoc");
+                elem.innerHTML = innerHTML;
+            } else {
+                elem = originalContent;
+            }
+            if (currentContent !== elem) {
+                currentContent.replaceWith(elem);
+                currentContent = elem;
+            }
+        }
+
+        function getSearchTerm() {
+            return (new URL(window.location)).searchParams.get("search");
+        }
+
+        const searchBox = document.querySelector(".pdoc input[type=search]");
+        searchBox.addEventListener("input", function () {
+            let url = new URL(window.location);
+            if (searchBox.value.trim()) {
+                url.hash = "";
+                url.searchParams.set("search", searchBox.value);
+            } else {
+                url.searchParams.delete("search");
+            }
+            history.replaceState("", "", url.toString());
+            onInput();
+        });
+        window.addEventListener("popstate", onInput);
+
+
+        let search, searchErr;
+
+        async function initialize() {
+            try {
+                search = await new Promise((resolve, reject) => {
+                    const script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.async = true;
+                    script.onload = () => resolve(window.pdocSearch);
+                    script.onerror = (e) => reject(e);
+                    script.src = "../search.js";
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                });
+            } catch (e) {
+                console.error("Cannot fetch pdoc search index");
+                searchErr = "Cannot fetch search index.";
+            }
+            onInput();
+
+            document.querySelector("nav.pdoc").addEventListener("click", e => {
+                if (e.target.hash) {
+                    searchBox.value = "";
+                    searchBox.dispatchEvent(new Event("input"));
+                }
+            });
+        }
+
+        function onInput() {
+            setContent((() => {
+                const term = getSearchTerm();
+                if (!term) {
+                    return null
+                }
+                if (searchErr) {
+                    return `<h3>Error: ${searchErr}</h3>`
+                }
+                if (!search) {
+                    return "<h3>Searching...</h3>"
+                }
+
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+                const results = search(term);
+
+                let html;
+                if (results.length === 0) {
+                    html = `No search results for '${escapeHTML(term)}'.`
+                } else {
+                    html = `<h4>${results.length} search result${results.length > 1 ? "s" : ""} for '${escapeHTML(term)}'.</h4>`;
+                }
+                for (let result of results.slice(0, 10)) {
+                    let doc = result.doc;
+                    let url = `../${doc.modulename.replaceAll(".", "/")}.html`;
+                    if (doc.qualname) {
+                        url += `#${doc.qualname}`;
+                    }
+
+                    let heading;
+                    switch (result.doc.kind) {
+                        case "function":
+                            if (doc.fullname.endsWith(".__init__")) {
+                                heading = `<span class="name">${doc.fullname.replace(/\.__init__$/, "")}</span>${doc.signature}`;
+                            } else {
+                                heading = `<span class="def">${doc.funcdef}</span> <span class="name">${doc.fullname}</span>${doc.signature}`;
+                            }
+                            break;
+                        case "class":
+                            heading = `<span class="def">class</span> <span class="name">${doc.fullname}</span>`;
+                            if (doc.bases)
+                                heading += `<wbr>(<span class="base">${doc.bases}</span>)`;
+                            heading += `:`;
+                            break;
+                        case "variable":
+                            heading = `<span class="name">${doc.fullname}</span>`;
+                            if (doc.annotation)
+                                heading += `<span class="annotation">${doc.annotation}</span>`;
+                            if (doc.default_value)
+                                heading += `<span class="default_value">${doc.default_value}</span>`;
+                            break;
+                        default:
+                            heading = `<span class="name">${doc.fullname}</span>`;
+                            break;
+                    }
+                    html += `
+                        <section class="search-result">
+                        <a href="${url}" class="attr ${doc.kind}">${heading}</a>
+                        <div class="docstring">${doc.doc}</div>
+                        </section>
+                    `;
+
+                }
+                return html;
+            })());
+        }
+
+        if (getSearchTerm()) {
+            initialize();
+            searchBox.value = getSearchTerm();
+            onInput();
+        } else {
+            searchBox.addEventListener("focus", initialize, { once: true });
+        }
+
+        searchBox.addEventListener("keydown", e => {
+            if (["ArrowDown", "ArrowUp", "Enter"].includes(e.key)) {
+                let focused = currentContent.querySelector(".search-result.focused");
+                if (!focused) {
+                    currentContent.querySelector(".search-result").classList.add("focused");
+                } else if (
+                    e.key === "ArrowDown"
+                    && focused.nextElementSibling
+                    && focused.nextElementSibling.classList.contains("search-result")
+                ) {
+                    focused.classList.remove("focused");
+                    focused.nextElementSibling.classList.add("focused");
+                    focused.nextElementSibling.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "nearest"
+                    });
+                } else if (
+                    e.key === "ArrowUp"
+                    && focused.previousElementSibling
+                    && focused.previousElementSibling.classList.contains("search-result")
+                ) {
+                    focused.classList.remove("focused");
+                    focused.previousElementSibling.classList.add("focused");
+                    focused.previousElementSibling.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "nearest"
+                    });
+                } else if (
+                    e.key === "Enter"
+                ) {
+                    focused.querySelector("a").click();
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

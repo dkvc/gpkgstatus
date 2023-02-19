@@ -131,3 +131,6 @@ dmypy.json
 
 # PyTest stuff.
 .pytest_cache/
+
+# Documentation stuff
+.temp/
