@@ -84,13 +84,13 @@ This section guides you through submitting an enhancement suggestion for gpgksta
 - Perform a [search](https://github.com/dkvc/gpgkstatus/issues) in issues to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your enhancement fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature.
 
-### Development Setup
+### Setting Up your Development Environment
 
 1. Most of the development is done on `docker` or `podman`. You can install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/getting-started/installation) from corresponding websites.
 
 2. Using [Dockerfile](https://github.com/dkvc/gpkgstatus/blob/main/.devcontainer/Dockerfile) on repository, you can create a development environment on container.
 
-3. Get started by looking through issues or making an [enhancement](#suggesting-enhancements)! :tada:
+3. Get started by looking through issues or making an [enhancement](#suggesting-enhancements)! 🎉
 
 ### Improving The Documentation
 
