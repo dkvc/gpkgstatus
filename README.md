@@ -5,7 +5,8 @@
 This program is a command-line tool for checking the status of packages on bodhi.fedoraproject.org.
 It allows you to search for a specific package and get information about its current status, including the update ID, package name, and status.
 
-[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000)](https://github.com/psf/black)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
 
 ## Current Build Status
 
@@ -35,8 +36,8 @@ It allows you to search for a specific package and get information about its cur
 
 There are two ways of installing gpgkstatus:
 
-1. **Using pip:** You can use `pip install gpkgstatus` and restart your terminal. Now you can use it! :tada:
-2. **(Unsupported) Using executables from Github:** You can download executable from Releases and use it directly. Make sure to set it as executable on Linux.
+1. **Using pip:** You can use `pip install gpkgstatus` and restart your terminal. Now you can use it!
+2. **(Unsupported) Using executables from Github:** You can download executable from [Releases](https://github.com/dkvc/gpkgstatus) and use it directly. Make sure to set it as executable on Linux.
 
 **Note:** If you want to run the file anywhere when using executable from Github, move the file to a directory in your system's PATH (usually /usr/local/bin)
 
