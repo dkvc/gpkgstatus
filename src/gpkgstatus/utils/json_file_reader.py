@@ -5,7 +5,7 @@ specific keys and stores their values for further
 processing or output.
 
 Raises:
-    `FileNotFoundException`: Manual Exception class that is raised if \
+    FileNotFoundException: Manual Exception class that is raised if \
             file doesn't exist or given path is not a file path.
 
 """
@@ -32,18 +32,13 @@ class FileNotFoundException(Exception):
 
 
 class JSONFileReader:
-    """A Custom JSON File Reader class created using `requests` library.
+    """A Custom JSON File Reader class created using requests package.
 
     The class is initialized by a JSON file path (which can be a Path object 
     or str) and a list of keys to be searched for.
 
-    Methods:
-        `read()`: Reads the JSON file from given path.
-        `relative_time()`: Returns the time difference between last modified \
-            of file and current time.
-
     Raises:
-        `FileNotFoundException`: Manual Exception class that is raised if \
+        FileNotFoundException: Manual Exception class that is raised if \
             file doesn't exist or given path is not a file path.
     """
 

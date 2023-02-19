@@ -1,12 +1,7 @@
-"""The main gpkgstatus module that searches the package \
-    from selected url and prints the update info to terminal.
+"""The gpkgstatus module searches package and prints its update info.
 
-    Methods:
-        `select_url()`: Selects url based on corresponding release \
-            and version.
-        `print_update_info()`: Prints update info to terminal.
-        `search_pkg()`: Search Package from cached file or given JSON url.
-        `cli()`: Main CLI of the program.
+The gpkgstatus module that searches the package from selected url or
+cached file and prints the update info to terminal.
 
 """
 import argparse
@@ -87,10 +82,10 @@ def print_update_info(update: dict, status_color: str):
 def search_pkg(args: dict):
     """Search Package from cached file or given JSON url.
 
-    If `--force` argument is specified, url will be used for searching
+    If --force argument is specified, url will be used for searching
     irrespective of whether cached expired or not. After requesting the
     url, the program stores the JSON response in a file named as
-    `name_release.json`; that has searched packages of corresponding release.
+    name_release.json; that has searched packages of corresponding release.
 
     Args:
         args (dict): Command-Line arguments in the form of dictionary.

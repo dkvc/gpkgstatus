@@ -2,7 +2,7 @@
     as a file in tempdir.
 
 Raises:
-    `URLReader._StatusException`: Manual exception raised if \
+    URLReader._StatusException: Manual exception raised if \
             HTTP status code is not OK (200).
 
 """
@@ -19,17 +19,13 @@ from termcolor import colored
 
 # pylint:disable=too-few-public-methods
 class URLReader:
-    """A Custom URL Reader class created using `requests` library.
+    """A Custom URL Reader class created using requests package.
 
     The class initializer uses a HEAD request to determine if given 
     JSON url exists.
 
-    Methods:
-        `_load_json()`: Loads the given JSON url.
-        `save_as_file()`: Saves JSON response in a file.
-
     Raises:
-        `URLReader._StatusException`: Manual exception raised if \
+        URLReader._StatusException: Manual exception raised if \
             HTTP status code is not OK (200).
     """
 
