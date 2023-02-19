@@ -7,6 +7,7 @@ Raises:
 
 """
 import json
+import logging
 import sys
 
 from os.path import join
@@ -45,6 +46,7 @@ class URLReader:
                 raise URLReader._StatusException()
 
             self._url = _url
+            logging.info("URL %s returned OK", _url)
 
         except requests.ConnectionError:
             print(colored(f"Error: Could not connect to {_url}", "red"))
@@ -63,6 +65,8 @@ class URLReader:
         """
         try:
             response = requests.get(self._url, timeout=5)
+            logging.info("GET Request from %s succeeded", self._url)
+
             return response.json()
         except requests.exceptions.JSONDecodeError:
             print(
@@ -89,12 +93,16 @@ class URLReader:
         """
         if not data:
             data = self._load_json()
+            logging.info("JSON loaded successfully from URL")
 
         temp_file = join(gettempdir(), filename)
 
         try:
             with open(temp_file, "w", encoding="utf-8") as file:
                 json.dump(data, file, skipkeys=True, indent=4)
+
+            logging.info("JSON stored in %s", filename)
+
         except PermissionError:
             print(
                 colored(

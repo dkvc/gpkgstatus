@@ -52,6 +52,12 @@ class JSONFileReader:
 
         if not isinstance(_path, Path):
             _path = Path(os.path.join(gettempdir(), _path))
+            logging.info("Path created")
+
+            logging.debug("Path created using filename")
+
+        else:
+            logging.debug("Path was directly given")
 
         if not (_path.exists() and _path.is_file()):
             raise FileNotFoundException()
@@ -78,6 +84,8 @@ class JSONFileReader:
         try:
             with open(self._path, "r", encoding="utf-8") as file:
                 data = jsonload(file)
+                logging.info("JSON loaded successfully from file")
+
                 searched_info = []
 
                 for key in self._keys:
@@ -86,9 +94,15 @@ class JSONFileReader:
                     else:
                         for value in data[key]:
                             if len(searched_info) >= limit:
+                                logging.info(
+                                    "Package is searched and found some entries"
+                                )
                                 return searched_info
 
                             searched_info.append(value)
+
+                logging.info("Package is searched but no entries found")
+
         except PermissionError:
             print(
                 colored(
@@ -103,4 +117,5 @@ class JSONFileReader:
     def relative_time(self):
         """Returns the time difference between last modified time of given file and \
             current os time in seconds."""
+        logging.debug("Relative time is determined")
         return time() - os.path.getmtime(self._path)

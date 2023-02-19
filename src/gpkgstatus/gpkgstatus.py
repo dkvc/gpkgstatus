@@ -5,9 +5,10 @@ cached file and prints the update info to terminal.
 
 """
 import argparse
+import logging
 import sys
 
-from typing import List
+from typing import Optional
 
 from termcolor import colored
 
@@ -16,7 +17,7 @@ from gpkgstatus.utils.url_reader import URLReader
 from gpkgstatus import __version__
 
 
-def select_url(name: str, version: List[str]):
+def select_url(name: Optional[str], version: str):
     """Selects url based on name based on corresponding release \
         version if specified or else globally.
 
@@ -26,8 +27,9 @@ def select_url(name: str, version: List[str]):
     release is invalid.
 
     Args:
-        name (str): Name of the package.
-        version (int, optional): If version is given, then package will be searched \
+        name (Optional[str]): Name of the package. Defaults to None if none \
+            is given in command-line arguments.
+        version (str): If version is given, then package will be searched \
             in specific release; or else the package will be searched globally. \
                 Defaults to None.
 
@@ -37,17 +39,24 @@ def select_url(name: str, version: List[str]):
     """
     first_letter = version[0]
     urls = {
-        "f": f"https://bodhi.fedoraproject.org/updates/?search={name}",
+        "f": "https://bodhi.fedoraproject.org/updates/?",
     }
 
     if first_letter in urls:
         url = urls[first_letter]
+        logging.info("Given version is in list")
     else:
         print(colored("Error: Invalid Distribution Release. Format: f{version}", "red"))
         sys.exit(1)
 
+    if name:
+        url += f"&search={name}"
+
     if len(version) > 1:
         url += f"&releases={version}"
+
+    logging.info("URL Selected: %s", url)
+
     return url
 
 
@@ -85,13 +94,19 @@ def search_pkg(args: dict):
     If --force argument is specified, url will be used for searching
     irrespective of whether cached expired or not. After requesting the
     url, the program stores the JSON response in a file named as
-    name_release.json; that has searched packages of corresponding release.
+    "name_release.json"; that has searched packages of corresponding release.
+    In case if --name argument is not specified, the file will be named
+    as "None_release.json".
 
     Args:
         args (dict): Command-Line arguments in the form of dictionary.
     """
+    if args["verbose"]:
+        logging.basicConfig(level=logging.INFO)
+
     cache_time = 3600  # 1 hr
-    distro_version = args["distro_version"][0]
+    release = args["release"][0]
+    name = args["name"][0] if args["name"] else None
 
     try:
         limit = int(args["limit"][0])
@@ -99,13 +114,17 @@ def search_pkg(args: dict):
         print(colored("You must enter an integer value.", "red"))
         sys.exit(1)
 
-    cache_file = f"{args['name']}_{distro_version}.json"
-    url = select_url(args["name"], distro_version.lower())
+    cache_file = f"{name}_{release}.json"
+    url = select_url(name, release.lower())
 
     try:
         file_reader = JSONFileReader(cache_file, "updates")
 
+        if args["force"]:
+            logging.info("Forced to update the cache")
+
         if args["force"] or (file_reader.relative_time() > cache_time):
+            logging.info("File cache is outdated")
             url_reader = URLReader(url)
             url_reader.save_as_file(cache_file)
 
@@ -135,14 +154,19 @@ def cli():
     parser = argparse.ArgumentParser(
         prog="gpkgstatus",
         description="Get Current Package Status from Fedora Updates System",
-        usage="gpkgstatus [-dv <DISTRO_VERSION>] [-l <number_of_pkgs>] [-f] <package_name>",
     )
 
-    parser.add_argument("name", help="Name of the package")
     parser.add_argument(
-        "-d",
-        "--distro-version",
-        help="Checks package status for corresponding Fedora version",
+        "-n",
+        "--name",
+        help="Name of the package",
+        type=str,
+        nargs=1,
+    )
+    parser.add_argument(
+        "-r",
+        "--release",
+        help="Checks package status for corresponding Fedora release",
         default="f",
         nargs=1,
     )
@@ -160,8 +184,11 @@ def cli():
         nargs=1,
     )
     parser.add_argument(
+        "-v", "--verbose", help="Enable verbose output", action="store_true"
+    )
+    parser.add_argument(
         "--version",
-        help="Returns gpkgstatus version",
+        help="gpkgstatus version",
         action="version",
         version=__version__,
     )
