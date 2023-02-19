@@ -42,6 +42,8 @@ classifiers = [
 
 
 [project.urls]
+Homepage = "https://dkvc.github.io/gpkgstatus/"
+Documentation = "https://dkvc.github.io/gpkgstatus/"
 Repository = "https://github.com/dkvc/gpkgstatus"
 
 [project.scripts]
