@@ -87,7 +87,7 @@ class URLReader:
             If no file is given, it takes JSON response as data from
             corresponding url.
         """
-        if data is None:
+        if not data:
             data = self._load_json()
 
         temp_file = join(gettempdir(), filename)
