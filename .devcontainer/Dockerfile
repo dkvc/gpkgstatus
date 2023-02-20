@@ -1,12 +1,14 @@
-FROM python:latest
+FROM python:3.10-alpine
 
-RUN useradd -ms /bin/bash dev
+RUN addgroup --system dev && \
+    adduser --system --shell /usr/sbin/nologin --ingroup dev dev
+
 USER dev
 
-WORKDIR /home/dev/
+WORKDIR /usr/app
 
-COPY dev-reqs.txt /home/dev/
-RUN pip3 install --no-cache-dir -r dev-reqs.txt
+COPY dev-reqs.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 LABEL name="gpkgstatus"
 LABEL version="1.0"
