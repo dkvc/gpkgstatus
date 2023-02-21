@@ -8,7 +8,13 @@ class TestFedoraUpdates:
         search_term = "kernel"
 
         gpkg.search_pkg(
-            {"name": search_term, "distro_version": "f", "force": False, "limit": "5"}
+            {
+                "name": search_term,
+                "release": "f",
+                "force": False,
+                "limit": "5",
+                "verbose": False,
+            }
         )
 
         captured = capsys.readouterr()
@@ -19,7 +25,13 @@ class TestFedoraUpdates:
         search_term = "python"
 
         gpkg.search_pkg(
-            {"name": search_term, "distro_version": "f37", "force": False, "limit": "8"}
+            {
+                "name": search_term,
+                "release": "f37",
+                "force": False,
+                "limit": "8",
+                "verbose": False,
+            }
         )
 
         captured = capsys.readouterr()
@@ -33,9 +45,10 @@ class TestFedoraUpdates:
             gpkg.search_pkg(
                 {
                     "name": search_term,
-                    "distro_version": "d11",
+                    "release": "d11",
                     "force": True,
                     "limit": "2",
+                    "verbose": False,
                 }
             )
 
@@ -48,7 +61,13 @@ class TestFedoraUpdates:
         search_term = "linux_in_toaster"
 
         gpkg.search_pkg(
-            {"name": search_term, "distro_version": "f", "force": False, "limit": "8"}
+            {
+                "name": search_term,
+                "release": "f",
+                "force": False,
+                "limit": "8",
+                "verbose": False,
+            }
         )
 
         captured = capsys.readouterr()
@@ -61,9 +80,10 @@ class TestFedoraUpdates:
             gpkg.search_pkg(
                 {
                     "name": search_term,
-                    "distro_version": "f",
+                    "release": "f",
                     "force": False,
                     "limit": "easy",
+                    "verbose": "False",
                 }
             )
 
@@ -74,7 +94,13 @@ class TestFedoraUpdates:
         search_term = "openjdk"
 
         gpkg.search_pkg(
-            {"name": search_term, "distro_version": "f", "force": False, "limit": "8"}
+            {
+                "name": search_term,
+                "release": "f",
+                "force": False,
+                "limit": "8",
+                "verbose": "False",
+            }
         )
 
         captured = capsys.readouterr()
