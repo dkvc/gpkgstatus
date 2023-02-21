@@ -1,15 +1,14 @@
-FROM python:3.10-alpine
+FROM python:3.11
 
-RUN addgroup --system dev && \
-    adduser --system --shell /usr/sbin/nologin --ingroup dev dev
+RUN useradd --shell /bin/bash --home /home/dev dev
 
 USER dev
 
-WORKDIR /usr/app
+WORKDIR /home/dev
 
 COPY dev-reqs.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 LABEL name="gpkgstatus"
-LABEL version="1.0"
+LABEL version="2.0"
 LABEL description="Dev environment for gpkgstatus"
