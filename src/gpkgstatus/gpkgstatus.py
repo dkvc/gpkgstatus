@@ -106,7 +106,7 @@ def search_pkg(args: dict):
 
     cache_time = 3600  # 1 hr
     release = args["release"][0]
-    name = args["name"][0] if args["name"] else None
+    name = args["name"] if args["name"] else None
 
     try:
         limit = int(args["limit"][0])

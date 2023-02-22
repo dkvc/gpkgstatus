@@ -37,7 +37,7 @@ class URLReader:
 
     def __init__(self, _url: str):
         try:
-            response = requests.head(_url, timeout=5)
+            response = requests.head(_url, timeout=15)
 
             if response.status_code != 200:
                 print(
@@ -64,7 +64,7 @@ class URLReader:
             Any: Returns JSON response of corresponding JSON url.
         """
         try:
-            response = requests.get(self._url, timeout=5)
+            response = requests.get(self._url, timeout=15)
             logging.info("GET Request from %s succeeded", self._url)
 
             return response.json()
