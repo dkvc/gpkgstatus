@@ -12,6 +12,7 @@ from typing import Optional
 
 from termcolor import colored
 
+from gpkgstatus.utils.config import Config
 from gpkgstatus.utils.json_file_reader import FileNotFoundException, JSONFileReader
 from gpkgstatus.utils.url_reader import URLReader
 from gpkgstatus import __version__
@@ -98,13 +99,33 @@ def search_pkg(args: dict):
     In case if --name argument is not specified, the file will be named
     as "None_release.json".
 
+    If --noconfig argument is specified, config will be ignored and values of
+    cache_time and verbose will be set to default values.
+
     Args:
         args (dict): Command-Line arguments in the form of dictionary.
     """
-    if args["verbose"]:
-        logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger()
+    logger.addHandler(logging.StreamHandler(sys.stdout))
 
-    cache_time = 3600  # 1 hr
+    if not args["noconfig"]:
+        config = Config()
+        config.set_info()
+
+        if config.get_verbose_status() or args["verbose"]:
+            logger.setLevel(logging.INFO)
+
+        cache_time = config.get_cache_time()
+    else:
+        # 52 min (default value)
+        cache_time = 52 * 60
+        if args["verbose"]:
+            logger.setLevel(logging.INFO)
+
+        logging.info("Forced to ignore config file")
+
+    logging.info("Cache Time: %d min", cache_time // 60)
+
     release = args["release"][0]
     name = args["name"] if args["name"] else None
 
@@ -184,13 +205,21 @@ def cli():
         nargs=1,
     )
     parser.add_argument(
-        "-v", "--verbose", help="Enable verbose output", action="store_true"
+        "-v",
+        "--verbose",
+        help="Enable verbose output",
+        action="store_true",
     )
     parser.add_argument(
         "--version",
         help="gpkgstatus version",
         action="version",
         version=__version__,
+    )
+    parser.add_argument(
+        "--noconfig",
+        help="Do not check for config file",
+        action="store_true",
     )
     args = parser.parse_args()
 

@@ -14,6 +14,7 @@ class TestFedoraUpdates:
                 "force": False,
                 "limit": "5",
                 "verbose": False,
+                "noconfig": True,
             }
         )
 
@@ -31,6 +32,7 @@ class TestFedoraUpdates:
                 "force": False,
                 "limit": "8",
                 "verbose": False,
+                "noconfig": True,
             }
         )
 
@@ -49,6 +51,7 @@ class TestFedoraUpdates:
                     "force": True,
                     "limit": "2",
                     "verbose": False,
+                    "noconfig": True,
                 }
             )
 
@@ -67,6 +70,7 @@ class TestFedoraUpdates:
                 "force": False,
                 "limit": "8",
                 "verbose": False,
+                "noconfig": True,
             }
         )
 
@@ -83,7 +87,8 @@ class TestFedoraUpdates:
                     "release": "f",
                     "force": False,
                     "limit": "easy",
-                    "verbose": "False",
+                    "verbose": False,
+                    "noconfig": True,
                 }
             )
 
@@ -99,7 +104,8 @@ class TestFedoraUpdates:
                 "release": "f",
                 "force": False,
                 "limit": "8",
-                "verbose": "False",
+                "verbose": False,
+                "noconfig": True,
             }
         )
 
