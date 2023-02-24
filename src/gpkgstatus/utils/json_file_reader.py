@@ -43,7 +43,7 @@ class JSONFileReader:
     """
 
     _keys: list = []
-    _path: Path = Path()
+    _path: Union[Path, str] = Path()
 
     def __init__(self, _path: Union[Path, str], *_keys):
         if len(_keys) < 1:
