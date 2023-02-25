@@ -178,20 +178,6 @@ def cli():
     )
 
     parser.add_argument(
-        "-n",
-        "--name",
-        help="Name of the package",
-        type=str,
-        nargs=1,
-    )
-    parser.add_argument(
-        "-r",
-        "--release",
-        help="Checks package status for corresponding Fedora release",
-        default="f",
-        nargs=1,
-    )
-    parser.add_argument(
         "-f",
         "--force",
         help="Sync cached info with Fedora Updates System",
@@ -205,6 +191,25 @@ def cli():
         nargs=1,
     )
     parser.add_argument(
+        "-n",
+        "--name",
+        help="Name of the package",
+        type=str,
+        nargs=1,
+    )
+    parser.add_argument(
+        "--noconfig",
+        help="Do not check for config file",
+        action="store_true",
+    )
+    parser.add_argument(
+        "-r",
+        "--release",
+        help="Checks package status for corresponding Fedora release",
+        default="f",
+        nargs=1,
+    )
+    parser.add_argument(
         "-v",
         "--verbose",
         help="Enable verbose output",
@@ -215,11 +220,6 @@ def cli():
         help="gpkgstatus version",
         action="version",
         version=__version__,
-    )
-    parser.add_argument(
-        "--noconfig",
-        help="Do not check for config file",
-        action="store_true",
     )
     args = parser.parse_args()
 
