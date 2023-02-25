@@ -61,7 +61,7 @@ def select_url(name: Optional[str], version: str):
     return url
 
 
-def print_update_info(update: dict, status_color: str):
+def print_update_info(update: dict, status_color: str = None, more_info=False):
     """Prints colored update info to terminal.
 
     The color is selected based on current status of package
@@ -86,6 +86,14 @@ def print_update_info(update: dict, status_color: str):
     print(colored(f"Update ID: {update['updateid']}", status_color))
     print(colored(f"Package Name: {update['title']}", status_color))
     print(colored(f"Status: {update['status']}", status_color))
+    if more_info:
+        print(colored(f"Alias: {update['alias']}", status_color))
+        print(colored(f"Date Submitted: {update['date_submitted']}", status_color))
+        print(colored(f"Severity: {update['severity']}", status_color))
+        print(colored(f"Version Hash: {update['version_hash']}", status_color))
+        print(colored(f"URL: {update['url']}", status_color))
+        print(colored(f"Notes: {update['notes']}", status_color))
+
     print("------------------------------")
 
 
@@ -128,6 +136,7 @@ def search_pkg(args: dict):
 
     release = args["release"][0]
     name = args["name"] if args["name"] else None
+    more_info = args["moreinfo"]
 
     try:
         limit = int(args["limit"][0])
@@ -162,7 +171,7 @@ def search_pkg(args: dict):
             sys.exit(0)
 
         for update in updates:
-            print_update_info(update, "green")
+            print_update_info(update, more_info=more_info)
 
 
 def cli():
@@ -183,12 +192,19 @@ def cli():
         help="Sync cached info with Fedora Updates System",
         action="store_true",
     )
+
+    # limit = 5 (default)
     parser.add_argument(
         "-l",
         "--limit",
         help="Maximum limit on number of packages shown for package search",
         default="5",
         nargs=1,
+    )
+    parser.add_argument(
+        "--moreinfo",
+        help="Verbose (More Info) in Update Info",
+        action="store_true",
     )
     parser.add_argument(
         "-n",
