@@ -49,22 +49,25 @@ You have to update executable manually!
 
 The program can be used by running the executable file with the following command:
 
-```bash
+```console
 $ gpkgstatus -h
 
-usage: gpkgstatus [-dv DISTRO_VERSION] [-f] name
+usage: gpkgstatus [-h] [-f] [-l LIMIT] [--moreinfo] [-n NAME] [--noconfig] [-r RELEASE] [-v] [--version]
 
 Get Current Package Status from Fedora Updates System
 
-positional arguments:
-  name                  Name of the package
-
 options:
   -h, --help            show this help message and exit
-  -d DISTRO_VERSION, --distro-version DISTRO_VERSION
-                        Checks package status for corresponding Fedora version
   -f, --force           Sync cached info with Fedora Updates System
-  -v, --version         Returns gpkgstatus version
+  -l LIMIT, --limit LIMIT
+                        Maximum limit on number of packages shown for package search
+  --moreinfo            Verbose (More Info) in Update Info
+  -n NAME, --name NAME  Name of the package
+  --noconfig            Do not check for config file
+  -r RELEASE, --release RELEASE
+                        Checks package status for corresponding Fedora release
+  -v, --verbose         Enable verbose output
+  --version             gpkgstatus version
 ```
 
 ## Contributing
