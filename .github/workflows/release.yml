@@ -5,10 +5,9 @@
 name: GitHub Release
 
 on:
-  workflow_run:
-    workflows: ["Publish Package on PyPI"]
-    types:
-      - completed
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   build:
