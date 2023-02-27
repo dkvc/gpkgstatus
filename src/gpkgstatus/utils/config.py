@@ -49,7 +49,7 @@ class Config:
         )
 
         if _cache_time:
-            self._cache_time = _cache_time
+            self._cache_time = _cache_time * 60
         else:
             logging.info("Default Cache Time: %d min", self._cache_time // 60)
 
