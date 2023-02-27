@@ -1,0 +1,80 @@
+# This workflow will:
+# - create release based on tag
+# if python-publish is run successfully
+
+name: GitHub Release
+
+on:
+  workflow_run:
+    workflows: ["Publish Package on PyPI"]
+    branches: [main]
+    types:
+      - completed
+
+jobs:
+  build:
+    name: Build executable using pyinstaller
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pyinstaller
+        shell: bash
+
+      - name: Build executable
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            pyinstaller --clean --onefile --console --distpath exec/ entrypoint.py -n gpkgstatus -p src/
+          else
+            pyinstaller --clean --onefile --distpath exec/ entrypoint.py -n gpkgstatus -p src/
+          fi
+        shell: bash
+
+      - name: Rename executable & Store SHA256 to a file
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            mv exec/gpkgstatus.exe exec/gpkgstatus_win.exe
+            sha256sum exec/gpkgstatus_win.exe > exec/gpkgstatus_win.sha256
+          else
+            mv exec/gpkgstatus exec/gpkgstatus_linux
+            sha256sum exec/gpkgstatus_linux > exec/gpkgstatus_linux.sha256
+          fi
+        shell: bash
+
+      - name: Archive executables
+        uses: "actions/upload-artifact@v3"
+        with:
+          name: exec
+          path: |
+            exec
+
+  release:
+    needs: build
+    name: Create GitHub release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Create release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.TEST_TOKEN }}"
+          prerelease: false
+          files: |
+            exec
