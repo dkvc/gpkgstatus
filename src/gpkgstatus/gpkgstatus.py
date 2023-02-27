@@ -48,6 +48,8 @@ def select_url(name: Optional[str], version: str):
         logging.info("Given version is in list")
     else:
         print(colored("Error: Invalid Distribution Release. Format: f{version}", "red"))
+        logging.debug("Invalid Version: %s", version)
+
         sys.exit(1)
 
     if name:
@@ -132,10 +134,11 @@ def search_pkg(args: dict):
 
         logging.info("Forced to ignore config file")
 
+    logging.info(args)
     logging.info("Cache Time: %d min", cache_time // 60)
 
     release = args["release"][0]
-    name = args["name"] if args["name"] else None
+    name = args["name"][0] if args["name"] else None
     more_info = args["moreinfo"]
 
     try:
@@ -210,7 +213,6 @@ def cli():
         "-n",
         "--name",
         help="Name of the package",
-        type=str,
         nargs=1,
     )
     parser.add_argument(
