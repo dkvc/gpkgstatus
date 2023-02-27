@@ -12,6 +12,7 @@ import sys
 
 from os.path import join
 from tempfile import gettempdir
+from time import sleep
 
 import requests
 
@@ -65,6 +66,7 @@ class URLReader:
         """
         try:
             response = requests.get(self._url, timeout=15)
+            sleep(1)
             logging.info("GET Request from %s succeeded", self._url)
 
             return response.json()
