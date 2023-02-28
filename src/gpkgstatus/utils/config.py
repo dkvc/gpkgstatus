@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 import json
-import pyinputplus as pyinp
 
 from termcolor import colored
 
@@ -38,28 +37,35 @@ class Config:
     def user_input(self):
         """Sets the fields based on user input.
 
-        Using `PyInputPlus` library for safe input, the input for
-        `cache_time` and `verbose` are set accordingly.
+        The input for `cache_time` and `verbose` are set accordingly
+        based on user input.
         """
 
         print(colored("Creating a new config file...", "green"))
 
-        _cache_time = pyinp.inputNum(
-            colored("Cache Time (min/[default]): ", "yellow"), blank=True
-        )
+        try:
+            _cache_time = input(
+                colored("Cache Time (in min/52 min[default]): ", "yellow")
+            )
 
-        if _cache_time:
-            self._cache_time = _cache_time * 60
-        else:
-            logging.info("Default Cache Time: %d min", self._cache_time // 60)
+            if _cache_time:
+                self._cache_time = int(_cache_time) * 60
 
-        _verbose = pyinp.inputYesNo(
-            colored("Do you want verbose info (y/n[default]): ", "yellow"), blank=True
-        )
-        if _verbose:
-            self._verbose = _verbose == "yes"
-        else:
-            logging.info("Default Verbose Value: %r", self._verbose)
+            logging.info("Cache Time: %d min", self._cache_time // 60)
+
+        except ValueError:
+            print(colored("Invalid Value for Cache Time", "red"))
+            sys.exit(1)
+
+        _verbose = "verbose"
+        while _verbose.lower() not in ("", "y", "yes", "n", "no"):
+            _verbose = input(
+                colored("Do you want verbose info (y/n[default]): ", "yellow")
+            )
+
+        self._verbose = _verbose == "y"
+
+        logging.info("Verbose Value: %r", self._verbose)
 
     def _check(self) -> bool:
         """Checks whether config file exists, and also checks if \
@@ -134,11 +140,14 @@ class Config:
     def overwrite(self):
         """Asks the user for overwriting config file."""
 
-        _overwrite = pyinp.inputYesNo(
-            colored("Do you want to overwrite the file (y/n[default]): ", "yellow"),
-            blank=True,
-        )
-        if not _overwrite or _overwrite == "no":
+        _overwrite = "verbose"
+        while _overwrite.lower() not in ("", "y", "yes", "n", "no"):
+            _overwrite = input(
+                colored("Do you want verbose info (y/n[default]): ", "yellow")
+            )
+        _overwrite = _overwrite == "y"
+
+        if not _overwrite:
             sys.exit(1)
         else:
             self.user_input()
