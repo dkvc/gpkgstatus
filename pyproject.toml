@@ -47,7 +47,7 @@ Documentation = "https://dkvc.github.io/gpkgstatus/"
 Repository = "https://github.com/dkvc/gpkgstatus"
 
 [project.scripts]
-gpkgstatus = "gpkgstatus.gpkgstatus:cli"
+gpkgstatus = "gpkgstatus.entrypoint:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "gpkgstatus.__version__"}
