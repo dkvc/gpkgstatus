@@ -8,4 +8,4 @@ package name, and status.
     Attributes:
         __version__: Contains version of program
 """
-__version__ = "2.0.4"
+__version__ = "2.0.5"
