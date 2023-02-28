@@ -36,9 +36,9 @@ jobs:
       - name: Build executable
         run: |
           if [ "$RUNNER_OS" == "Windows" ]; then
-            pyinstaller --clean --onefile --console --distpath exec/ entrypoint.py -n gpkgstatus -p src/
+            pyinstaller --clean --onefile --console --distpath exec/ src/gpkgstatus/entrypoint.py -n gpkgstatus -p src/
           else
-            pyinstaller --clean --onefile --distpath exec/ entrypoint.py -n gpkgstatus -p src/
+            pyinstaller --clean --onefile --distpath exec/ src/gpkgstatus/entrypoint.py -n gpkgstatus -p src/
           fi
         shell: bash
 

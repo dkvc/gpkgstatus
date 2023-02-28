@@ -55,8 +55,7 @@ jobs:
       - name: Analyze code with pylint
         run: >-
           pylint 
-          src/ 
-          entrypoint.py
+          src/
       
       - name: Validate pyproject.toml
         run: |
