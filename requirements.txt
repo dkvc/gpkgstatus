@@ -1,3 +1,2 @@
-PyInputPlus==0.2.12
 requests==2.28.2
 termcolor==2.2.0
