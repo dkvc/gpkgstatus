@@ -1520,21 +1520,24 @@
                 <p>The program can be used by running the executable file with the following command:</p>
 
                 <div class="pdoc-code codehilite">
-                    <pre><span></span><code>$<span class="w"> </span>gpkgstatus<span class="w"> </span>-h
+                    <pre><span></span><code><span class="gp">$ </span>gpkgstatus<span class="w"> </span>-h
 
-usage:<span class="w"> </span>gpkgstatus<span class="w"> </span><span class="o">[</span>-dv<span class="w"> </span>DISTRO_VERSION<span class="o">]</span><span class="w"> </span><span class="o">[</span>-f<span class="o">]</span><span class="w"> </span>name
+<span class="go">usage: gpkgstatus [-h] [-f] [-l LIMIT] [--moreinfo] [-n NAME] [--noconfig] [-r RELEASE] [-v] [--version]</span>
 
-Get<span class="w"> </span>Current<span class="w"> </span>Package<span class="w"> </span>Status<span class="w"> </span>from<span class="w"> </span>Fedora<span class="w"> </span>Updates<span class="w"> </span>System
+<span class="go">Get Current Package Status from Fedora Updates System</span>
 
-positional<span class="w"> </span>arguments:
-<span class="w">  </span>name<span class="w">                  </span>Name<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>package
-
-options:
-<span class="w">  </span>-h,<span class="w"> </span>--help<span class="w">            </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
-<span class="w">  </span>-d<span class="w"> </span>DISTRO_VERSION,<span class="w"> </span>--distro-version<span class="w"> </span>DISTRO_VERSION
-<span class="w">                        </span>Checks<span class="w"> </span>package<span class="w"> </span>status<span class="w"> </span><span class="k">for</span><span class="w"> </span>corresponding<span class="w"> </span>Fedora<span class="w"> </span>version
-<span class="w">  </span>-f,<span class="w"> </span>--force<span class="w">           </span>Sync<span class="w"> </span>cached<span class="w"> </span>info<span class="w"> </span>with<span class="w"> </span>Fedora<span class="w"> </span>Updates<span class="w"> </span>System
-<span class="w">  </span>-v,<span class="w"> </span>--version<span class="w">         </span>Returns<span class="w"> </span>gpkgstatus<span class="w"> </span>version
+<span class="go">options:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -f, --force           Sync cached info with Fedora Updates System</span>
+<span class="go">  -l LIMIT, --limit LIMIT</span>
+<span class="go">                        Maximum limit on number of packages shown for package search</span>
+<span class="go">  --moreinfo            Verbose (More Info) in Update Info</span>
+<span class="go">  -n NAME, --name NAME  Name of the package</span>
+<span class="go">  --noconfig            Do not check for config file</span>
+<span class="go">  -r RELEASE, --release RELEASE</span>
+<span class="go">                        Checks package status for corresponding Fedora release</span>
+<span class="go">  -v, --verbose         Enable verbose output</span>
+<span class="go">  --version             gpkgstatus version</span>
 </code></pre>
                 </div>
 
