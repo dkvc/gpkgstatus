@@ -19,6 +19,11 @@ It allows you to search for a specific package and get information about its cur
 [![Dep Status](https://img.shields.io/librariesio/release/pypi/gpkgstatus)](https://pypi.org/project/gpkgstatus/)
 [![Python support](https://img.shields.io/pypi/pyversions/gpkgstatus)](https://pypi.org/project/gpkgstatus/)
 
+## Current conda-forge Status
+
+[![Conda Recipe](https://img.shields.io/badge/recipe-gpkgstatus-green.svg)](https://anaconda.org/conda-forge/gpkgstatus)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/gpkgstatus.svg)](https://anaconda.org/conda-forge/gpkgstatus)
+
 ## Current Release Status
 
 [![Last Pre-Release Date](https://img.shields.io/github/release-date-pre/dkvc/gpkgstatus?label=Github%20Release%20(Preview)&)](https://github.com/dkvc/gpkgstatus/releases)
