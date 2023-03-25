@@ -3,6 +3,7 @@
 """
 
 import logging
+import os
 import sys
 
 from pathlib import Path
@@ -31,8 +32,12 @@ class Config:
         self._cache_time = _cache_time
         logging.info("Set Cache Time: %d min", _cache_time // 60)
 
-        self._path = Path.expanduser(Path("~/.gpkgconfig"))
         self._verbose = _verbose
+
+        if "XDG_CONFIG_HOME" in os.environ:
+            self._path = Path(os.environ["XDG_CONFIG_HOME"]).joinpath(".gpkgconfig")
+        else:
+            self._path = Path.expanduser(Path("~/.config/.gpkgconfig"))
 
     def user_input(self):
         """Sets the fields based on user input.
