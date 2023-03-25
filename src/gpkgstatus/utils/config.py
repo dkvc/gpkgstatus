@@ -143,7 +143,7 @@ class Config:
         _overwrite = "verbose"
         while _overwrite.lower() not in ("", "y", "yes", "n", "no"):
             _overwrite = input(
-                colored("Do you want verbose info (y/n[default]): ", "yellow")
+                colored("Do you want to overwrite the file (y/n[default]): ", "yellow")
             )
         _overwrite = _overwrite == "y"
 
