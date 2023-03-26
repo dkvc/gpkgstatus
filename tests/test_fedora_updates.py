@@ -1,5 +1,7 @@
 import logging
 from pytest import raises
+from random import randint
+from time import sleep
 
 import gpkgstatus.gpkgstatus as gpkg
 
@@ -27,6 +29,7 @@ class TestFedoraUpdates:
     def test_search_package(self, capsys):
         search_term = ["kernel"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
@@ -46,6 +49,7 @@ class TestFedoraUpdates:
     def test_valid_distro_forced(self, capsys):
         search_term = ["python"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
@@ -65,6 +69,7 @@ class TestFedoraUpdates:
     def test_valid_distro(self, capsys):
         search_term = ["python"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
@@ -84,6 +89,7 @@ class TestFedoraUpdates:
     def test_invalid_distro_forced(self, capsys):
         search_term = ["kernel"]
 
+        sleep(randint(10, 15))
         with raises(SystemExit):
             gpkg.search_pkg(
                 {
@@ -105,6 +111,7 @@ class TestFedoraUpdates:
     def test_invalid_distro(self, capsys):
         search_term = ["kernel"]
 
+        sleep(randint(10, 15))
         with raises(SystemExit):
             gpkg.search_pkg(
                 {
@@ -126,6 +133,7 @@ class TestFedoraUpdates:
     def search_term_does_not_exist(self, capsys):
         search_term = ["linux_in_toaster"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
@@ -144,6 +152,7 @@ class TestFedoraUpdates:
     def test_invalid_limit(self, capsys):
         search_term = ["openjdk"]
 
+        sleep(randint(10, 15))
         with raises(SystemExit):
             gpkg.search_pkg(
                 {
@@ -163,6 +172,7 @@ class TestFedoraUpdates:
     def test_limit_too_high(self, capsys):
         search_term = ["openjdk"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
@@ -185,6 +195,7 @@ class TestFedoraUpdates:
     def test_more_info(self, capsys):
         search_term = ["openjdk"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
@@ -220,6 +231,7 @@ class TestFedoraUpdates:
     def test_verbose(self):
         search_term = ["openjdk"]
 
+        sleep(randint(10, 15))
         gpkg.search_pkg(
             {
                 "name": search_term,
