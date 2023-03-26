@@ -1,4 +1,4 @@
-# Code of Conduct - **gpgkstatus**
+# Code of Conduct - **gpkgstatus**
 
 ## Our Pledge
 
