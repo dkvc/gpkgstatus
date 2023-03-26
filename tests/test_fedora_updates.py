@@ -27,7 +27,7 @@ class TestFedoraUpdates:
 
     def test_search_package(self, capsys):
         search_term = ["kernel"]
-        
+
         sleep(10)
         gpkg.search_pkg(
             {
