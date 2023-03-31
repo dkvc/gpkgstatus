@@ -6,6 +6,7 @@ cached file and prints the update info to terminal.
 """
 import argparse
 import logging
+from random import randint
 import sys
 
 from typing import Optional
@@ -120,15 +121,14 @@ def search_pkg(args: dict):
 
     if not args["noconfig"]:
         config = Config()
-        config.set_info()
+        config.main()
 
-        if config.get_verbose_status() or args["verbose"]:
+        if config.verbose or args["verbose"]:
             logger.setLevel(logging.INFO)
 
-        cache_time = config.get_cache_time()
+        cache_time = config.cache_time
     else:
-        # 52 min (default value)
-        cache_time = 52 * 60
+        cache_time = randint(52, 65) * 60
         if args["verbose"]:
             logger.setLevel(logging.INFO)
 
