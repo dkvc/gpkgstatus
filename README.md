@@ -39,14 +39,14 @@ It allows you to search for a specific package and get information about its cur
 
 ## Installation
 
-There are two ways of installing gpgkstatus:
+There are two methods of installing gpgkstatus:
 
 1. **Using pip:** You can use `pip install gpkgstatus` and restart your terminal. Now you can use it!
 2. **(Unsupported) Using executables from Github:** You can download executable from [Releases](https://github.com/dkvc/gpkgstatus) and use it directly. Make sure to set it as executable on Linux.
 
 **Note:** If you want to run the file anywhere when using executable from Github, move the file to a directory in your system's PATH (usually /usr/local/bin)
 
-### Why Way 2 is unsupported?
+### Why Method 2 is unsupported?
 
 You have to update executable manually!
 
