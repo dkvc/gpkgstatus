@@ -42,16 +42,16 @@ class JSONFileReader:
             file doesn't exist or given path is not a file path.
     """
 
-    _keys: list = []
-    _path: Union[Path, str] = Path()
+    __keys: list = []
+    __path: Union[Path, str] = Path()
 
-    def __init__(self, _path: Union[Path, str], *_keys):
-        if len(_keys) < 1:
+    def __init__(self, __path: Union[Path, str], *__keys):
+        if len(__keys) < 1:
             print(colored("Error: At least one key is required"))
             sys.exit(1)
 
-        if not isinstance(_path, Path):
-            _path = Path(os.path.join(gettempdir(), _path))
+        if not isinstance(__path, Path):
+            __path = Path(os.path.join(gettempdir(), __path))
             logging.info("Path created")
 
             logging.debug("Path created using filename")
@@ -59,11 +59,11 @@ class JSONFileReader:
         else:
             logging.debug("Path was directly given")
 
-        if not (_path.exists() and _path.is_file()):
+        if not (__path.exists() and __path.is_file()):
             raise FileNotFoundException()
 
-        self._keys = list(_keys)
-        self._path = _path
+        self.__keys = list(__keys)
+        self.__path = __path
 
     def read(self, limit: int = 5):
         """Reads a JSON file and returns limit number of values from \
@@ -82,13 +82,13 @@ class JSONFileReader:
             was to searched for.
         """
         try:
-            with open(self._path, "r", encoding="utf-8") as file:
+            with open(self.__path, "r", encoding="utf-8") as file:
                 data = jsonload(file)
                 logging.info("JSON loaded successfully from file")
 
                 searched_info = []
 
-                for key in self._keys:
+                for key in self.__keys:
                     if key not in data.keys():
                         logging.warning(colored(f"Warning: Key {key} doesn't exist"))
                     else:
@@ -118,4 +118,4 @@ class JSONFileReader:
         """Returns the time difference between last modified time of given file and \
             current os time in seconds."""
         logging.debug("Relative time is determined")
-        return time() - os.path.getmtime(self._path)
+        return time() - os.path.getmtime(self.__path)
