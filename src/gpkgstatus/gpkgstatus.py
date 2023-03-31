@@ -158,10 +158,14 @@ def search_pkg(args: dict):
 
         if args["force"] or (file_reader.relative_time() > cache_time):
             logging.info("File cache is outdated")
+
+            print(colored("Getting list of updates...", "green"))
             url_reader = URLReader(url)
             url_reader.save_as_file(cache_file)
 
     except FileNotFoundException:
+        print(colored("Getting list of updates...", "green"))
+
         url_reader = URLReader(url)
         url_reader.save_as_file(cache_file)
         file_reader = JSONFileReader(cache_file, "updates")
@@ -173,6 +177,7 @@ def search_pkg(args: dict):
             print(colored("No Updates Found. Check your arguments.", "red"))
             sys.exit(0)
 
+        print("------------------------------")
         for update in updates:
             print_update_info(update, more_info=more_info)
 
