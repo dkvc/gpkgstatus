@@ -2,76 +2,116 @@
     config file.
 """
 
-import json
 import logging
 import os
 import sys
 
 from pathlib import Path
-from random import randint
+
+import json
 
 from termcolor import colored
 
 
 class Config:
-    """A Config class that contains fields or keys of the \
-        config file.
+    """A Config class that contains information about fields \
+        or keys of the config file.
+
+        It contains getters for `cache_time` and `verbose`. In
+        case if `cache_time` or `verbose` is not determined, the default
+        values (`52 min`) and (`False`) are set respectively.
     """
 
-    cache_time: int
-    verbose: bool
-    __path: Path
+    _cache_time: int
+    _path: Path
+    _verbose: bool
 
-    def __init__(self):
-        self.cache_time = randint(52, 65) * 60
-        self.verbose = False
+    # _cache_time = 52 min (default)
+    # _verbose = False (default)
+    def __init__(self, _cache_time: int = 52 * 60, _verbose: bool = False):
+        self._cache_time = _cache_time
+        logging.info("Set Cache Time: %d min", _cache_time // 60)
 
-        logging.info("Set Cache Time: %d min", self.cache_time // 60)
-        logging.info("Set Verbose to %s", self.verbose)
+        self._verbose = _verbose
 
-        # Set Path
         if "XDG_CONFIG_HOME" in os.environ:
-            self.__path = Path(os.environ["XDG_CONFIG_HOME"]).joinpath(".gpkgconfig")
+            self._path = Path(os.environ["XDG_CONFIG_HOME"]).joinpath(".gpkgconfig")
         else:
-            self.__path = Path.expanduser(Path("~/.config/.gpkgconfig"))
+            self._path = Path.expanduser(Path("~/.config/.gpkgconfig"))
 
-        logging.info("Set path to %s", self.__path)
+    def user_input(self):
+        """Sets the fields based on user input.
 
-    def check(self) -> bool:
+        The input for `cache_time` and `verbose` are set accordingly
+        based on user input.
+        """
+
+        print(colored("Creating a new config file...", "green"))
+
+        try:
+            _cache_time = input(
+                colored("Cache Time (in min/52 min[default]): ", "yellow")
+            )
+
+            if _cache_time:
+                self._cache_time = int(_cache_time) * 60
+
+            logging.info("Cache Time: %d min", self._cache_time // 60)
+
+        except ValueError:
+            print(colored("Invalid Value for Cache Time", "red"))
+            sys.exit(1)
+
+        _verbose = "verbose"
+        while _verbose.lower() not in ("", "y", "yes", "n", "no"):
+            _verbose = input(
+                colored("Do you want verbose info (y/n[default]): ", "yellow")
+            )
+
+        self._verbose = _verbose == "y"
+
+        logging.info("Verbose Value: %r", self._verbose)
+
+    def _check(self) -> bool:
         """Checks whether config file exists, and also checks if \
             it is a valid JSON file.
 
+            In case if file doesn't exist, it automatically creates
+            a config file based on user input.
+
         Returns:
-            bool: Whether config file exists and is a valid JSON file
+            bool: Whether config file exists or not
         """
-        path = self.__path
-        if not (path.exists() and path.is_file()):
-            logging.info("Config file not found")
-            return False
+        _path = self._path
+        if not (_path.exists() and _path.is_file):
+            print(colored("Config file doesn't exist.", "light_red"))
+            self.user_input()
+            self.create()
 
         try:
-            with open(path, encoding="utf-8") as file:
+            with open(_path, encoding="utf-8") as file:
                 json.load(file)
         except json.JSONDecodeError:
-            logging.info("Config file is not a valid JSON file")
+            print(colored("File is not a valid JSON file.", "light_red"))
             return False
 
-        logging.info("Config file is valid")
+        logging.info("Config file exists")
         return True
 
     def create(self):
-        """Creates config file in corresponding path.
+        """Creates the JSON config (~/.gpkgconfig) file.
 
-        If script doesn't have permissions to write to config dir,
-        it will tell the user to check config dir permissions.
+        Based on the given fields, the JSON config file is created.
+        If user home directory is permissive, the method will ask to
+        check home directory permissions.
         """
 
-        config = {"cache_time": self.cache_time, "verbose": self.verbose}
+        config = {"cache_time": self._cache_time, "verbose": self._verbose}
         try:
-            with open(self.__path, "w", encoding="utf-8") as file:
+            with open(self._path, "w", encoding="utf-8") as file:
                 json.dump(config, file, skipkeys=True, indent=4)
 
-            logging.info("Config file written to %s", self.__path)
+            logging.info("Config File written to %s", str(self._path))
 
         except PermissionError:
             print(
@@ -83,29 +123,68 @@ class Config:
             sys.exit(1)
 
     def read(self):
-        """If config file exists, this method reads the JSON config file.
+        """Reads the JSON config file
 
-        It also checks if ("cache_time", "verbose") are keys in JSON file.
-        In case if one of them doesn't exist, it states that file is not
-        a valid config file.
+        It also checks if (`cache_time` and `verbose`) are keys in
+        JSON file. In case if one of them doesn't exist, it states
+        that file is not a valid config file and asks the user
+        for overwriting the file.
         """
-        with open(self.__path, encoding="utf-8") as file:
+
+        with open(self._path, encoding="utf-8") as file:
             data = json.load(file)
 
         if all(key not in data.keys() for key in ("cache_time", "verbose")):
             print(colored("File is not a valid Config file.", "light_red"))
+            self.overwrite()
+            logging.info("File overwritten.")
+
+        self._cache_time = data["cache_time"]
+        self._verbose = data["verbose"]
+
+    def overwrite(self):
+        """Asks the user for overwriting config file."""
+
+        _overwrite = "verbose"
+        while _overwrite.lower() not in ("", "y", "yes", "n", "no"):
+            _overwrite = input(
+                colored("Do you want to overwrite the file (y/n[default]): ", "yellow")
+            )
+        _overwrite = _overwrite == "y"
+
+        if not _overwrite:
             sys.exit(1)
-
-        self.cache_time = data["cache_time"]
-        self.verbose = data["verbose"]
-
-    def main(self):
-        """Main Method
-
-        The method checks if file exists and reads the file. If file
-        is not generated, then it calls the `create()` function.
-        """
-        if not self.check():
+        else:
+            self.user_input()
             self.create()
+            logging.info("File overwritten.")
+
+    def set_info(self):
+        """The main program that checks the file using `_check()`
+        function.
+
+        If output of checking is False, it starts to overwrite
+        the invalid file, or else, it reads the file.
+        """
+
+        if not self._check():
+            self.overwrite()
 
         self.read()
+
+    def get_cache_time(self) -> int:
+        """Getter for field `_cache_time`
+
+        Returns:
+            int: Value of `_cache_time`
+        """
+
+        return self._cache_time
+
+    def get_verbose_status(self) -> bool:
+        """Getter for field `_verbose`
+
+        Returns:
+            bool: Value of `_verbose`
+        """
+        return self._verbose
