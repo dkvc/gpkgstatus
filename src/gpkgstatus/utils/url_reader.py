@@ -65,7 +65,8 @@ class URLReader:
             Any: Returns JSON response of corresponding JSON url.
         """
         try:
-            response = requests.get(self._url, timeout=15)
+            headers = {"accept": "application/json"}
+            response = requests.get(self._url, timeout=15, headers=headers)
             sleep(1)
             logging.info("GET Request from %s succeeded", self._url)
 
