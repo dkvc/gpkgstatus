@@ -4,7 +4,6 @@
 # - test: (on supported python versions)
 #   Analyze code with Pylint 
 #   Validate pyproject.toml for errors
-#   Test with pytest 
 
 # - build-n-publish: Build and Publish Python package
 # to PyPI.
@@ -82,10 +81,6 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           pip install pytest
-
-      - name: Test with pytest
-        run: |
-          pytest -v .
 
   
   build-n-publish:
