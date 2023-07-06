@@ -1,5 +1,6 @@
 ## FAQs
 **1. What does gpkgstatus mean?**
+
 **A:** **gpkgstatus** stands for *Get Package Status*, since we are getting status of packages from Fedora Updates System.
 
 **2. Why are you not using the [Official Bodhi API](https://fedora-infra.github.io/bodhi/7.1/python_bindings.html) mantained by Bodhi Team?**
