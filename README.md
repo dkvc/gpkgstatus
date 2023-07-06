@@ -85,4 +85,4 @@ The development of this project would not have been possible without [Bodhi](htt
 For more information about the Bodhi Project, please visit their [official repository](https://github.com/fedora-infra/bodhi) on GitHub.
 
 ## FAQs
-You can find FAQs (Frequently Asked Questions) in [faq.md](./faq.md)
+You can find FAQs (Frequently Asked Questions) in [faqs.md](./faqs.md)
