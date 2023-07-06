@@ -78,3 +78,8 @@ options:
 ## Contributing
 
 You are welcome to contribute to this project. Make sure to read [Contributing Guidelines](https://github.com/dkvc/gpkgstatus/blob/main/CONTRIBUTING.md). If you have any questions regarding contributing to this project, you can open an issue about it.
+
+## Credits
+The development of this project would not have been possible without [Bodhi](https://bodhi.fedoraproject.org) developed by the [Fedora Project](https://fedoraproject.org). Although this project is unofficial and not affiliated with Bodhi or Fedora, we appreciate the valuable contributions made by the Bodhi and its developers.
+
+For more information about the Bodhi Project, please visit their [official repository](https://github.com/fedora-infra/bodhi) on GitHub.
