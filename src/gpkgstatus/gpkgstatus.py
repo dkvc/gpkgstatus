@@ -79,7 +79,13 @@ def print_update_info(update: dict, status_color: str = None, more_info=False):
         update (dict): Dictionary of Updates containing metadata.
         status_color (str): ASCII Color if explicitly given.
     """
-    colors = {"stable": "green", "testing": "yellow", "pending": "red"}
+    colors = {
+        "stable": "green",
+        "testing": "yellow",
+        "pending": "red",
+        "unpushed": "cyan",
+        "obselete": "magneta",
+    }
 
     if update["status"].lower() in colors:
         status_color = colors[update["status"]]
