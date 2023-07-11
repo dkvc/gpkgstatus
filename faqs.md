@@ -28,3 +28,7 @@ To make this process easier, I had written a CLI to check Fedora updates that is
 **7. Are there any plans for the project in future other than change to API or minor updates?**
 
 It is highly probable that project will be moved from Python to a language that doesn't need dependencies or interpreter/compiler to run the program. This allows the program to run on embedded systems and also prevents systems from [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
+
+**8. Does this mean end of python package on PyPI and Conda-Forge?**
+
+While I have no plans on deprecating python package right now, it is quite possible that they might get deprecated. The deprecation notice will be given earlier than 3 months.
