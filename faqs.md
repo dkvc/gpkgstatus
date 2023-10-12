@@ -5,7 +5,7 @@
 
 **2. Why are you not using the [Official Bodhi API](https://fedora-infra.github.io/bodhi/7.1/python_bindings.html) mantained by Bodhi Team?**
 
-**A:** There are few reasons for this. When this project was in early stages of development, I had less idea of development processes based on APIs. While searching for API on Bodhi, I found three packages [Bodhi](https://pypi.org/project/bodhi/) ,[Bodhi client](https://pypi.org/project/bodhi-client/) and [Bodhi messages](https://pypi.org/project/bodhi-messages/). While it is clear now that Bodhi client needs to be used, back then I had no idea whether Bodhi client and Bodhi messages are related to Bodhi update notifications since unlike Bodhi, they had less description on what it is. Moreover, I also assumed that Bodhi client required authentication to get messages, which I wasn't able to implement perfectly at that time.
+**A:** There are few reasons for this. When this project was in early stages of development, I had less idea of development processes based on APIs. While searching for API on Bodhi, I found three packages [Bodhi](https://pypi.org/project/bodhi/) ,[Bodhi client](https://pypi.org/project/bodhi-client/) and [Bodhi messages](https://pypi.org/project/bodhi-messages/). While it is clear now that Bodhi client needs to be used, back then I had no idea whether Bodhi client and Bodhi messages are related to Bodhi update notifications since unlike Bodhi, they had less description on what it is. Moreover, I've also assumed that Bodhi client required authentication to get messages, which I wasn't able to implement perfectly at that time.
 
 **3. Do you have any plans on using Bodhi API in future?**
 
@@ -13,7 +13,7 @@
 
 **4. If you know that testing is hitting limits of robots.txt (or almost DDoSing) the site, why didn't you stop it earlier?**
 
-**A:** I had no idea that testing was DDoSing the site until I found that tests are failing for some reason on Github. I started tracking the issue down and it appears that testing across multiple python versions are DDoSing the site. I tried to add a sleep timer to avoid DDoSing based on *Crawl Delay* field of [robots.txt](https://bodhi.fedoraproject.org/robots.txt) on site temporarily. Since the next major update changes crawling to API, *the testing is no longer done automatically by Actions as well as no longer mantained*.
+**A:** I apologize for oversight on my part. I had no idea that testing was DDoSing the site until I found that tests are failing for some reason on Github. I started tracking the issue down and it appears that testing across multiple python versions are DDoSing the site. I tried to add a sleep timer to avoid DDoSing based on *Crawl Delay* field of [robots.txt](https://bodhi.fedoraproject.org/robots.txt) on site temporarily. Since the next major update changes crawling to API, *the testing is no longer done automatically by Actions as well as no longer mantained*.
 
 **5. Is there any significance of [this project](https://github.com/dkvc/gpkgstatus) when there is [Bodhi CLI](https://bodhi.readthedocs.io/en/stable/man_bodhi.html)?**
 
