@@ -1,5 +1,7 @@
 # gpkgstatus
 
+> The project is no longer updated. Please use [official Bodhi client](https://packages.fedoraproject.org/pkgs/bodhi/bodhi-client/) in case of any issues.
+
 ## Get Current Package Status from Fedora Updates System
 
 This program is a command-line tool for checking the status of packages on bodhi.fedoraproject.org.
